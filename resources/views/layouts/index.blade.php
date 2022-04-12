@@ -3,7 +3,7 @@
 @section('title','Sub Page Title')
 
 @section('sidebar')
-    @parent
+        @parent
 
 
     <p>This is appended to the master sidebar</p>
@@ -12,7 +12,7 @@
 
 @section('content')
 
-    <p>This is my body content.</p>
+ <p>This is my body content.</p>
 
 @endsection
 
