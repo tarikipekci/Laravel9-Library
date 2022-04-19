@@ -1,3 +1,5 @@
+<!-- Wrapper -->
+<div id="wrapper">
 <!-- Footer -->
 <footer id="footer">
     <div class="inner">
@@ -35,9 +37,9 @@
             <h2>Contact Info</h2>
 
             <ul class="alt">
-                <li><span class="fa fa-envelope-o"></span> <a href="#">contact@company.com</a></li>
-                <li><span class="fa fa-phone"></span> +1 333 4040 5566 </li>
-                <li><span class="fa fa-map-pin"></span> 212 Barrington Court New York, ABC 10001 United States of America</li>
+                <li><span class="fa fa-envelope-o"></span> <a href="#">ytarik.ipekci@gmail.com</a></li>
+                <li><span class="fa fa-phone"></span> +90 0534 589 9250 </li>
+                <li><span class="fa fa-map-pin"></span> Maltepe/Istanbul/Turkey</li>
             </ul>
 
             <h2>Follow Us</h2>
@@ -51,17 +53,16 @@
         </section>
 
         <ul class="copyright">
-            <li>Copyright © 2020 Company Name </li>
-            <li>Template by: <a href="https://www.phpjabbers.com/">PHPJabbers.com</a></li>
+            <li>Copyright © 2022 Bookraria </li>
         </ul>
     </div>
 </footer>
 
 </div>
-
+</div>
 <!-- Scripts -->
-<script src="{{asset('assets')}}/js/jquery.min.js"></script>
-<script src="{{asset('assets')}}/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="{{asset('assets')}}/js/jquery.scrolly.min.js"></script>
-<script src="{{asset('assets')}}/js/jquery.scrollex.min.js"></script>
-<script src="{{asset('assets')}}/js/main.js"></script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/main.js"></script>

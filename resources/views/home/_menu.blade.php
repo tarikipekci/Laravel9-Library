@@ -1,27 +1,29 @@
-<!-- Menu -->
-<nav id="menu">
-    <h2>Menu</h2>
-    <ul>
-        <li><a href="index.html" class="active">Home</a></li>
+<!-- Wrapper -->
+<div id="wrapper">
+    <!-- Menu -->
+    <nav id="menu">
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
 
-        <li><a href="products.html">Products</a></li>
+            <li><a href="products.html">Products</a></li>
 
-        <li><a href="checkout.html">Checkout</a></li>
+            <li><a href="checkout.html">Checkout</a></li>
 
-        <li>
-            <a href="#" class="dropdown-toggle">About</a>
+            <li>
+                <a href="#" class="dropdown-toggle">About</a>
 
-            <ul>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="testimonials.html">Testimonials</a></li>
-                <li><a href="terms.html">Terms</a></li>
-            </ul>
-        </li>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                </ul>
+            </li>
 
-        <li><a href="contact.html">Contact Us</a></li>
-    </ul>
-</nav>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
 
 <!-- Main -->
 <div id="main">
@@ -58,7 +60,7 @@
     <div class="inner">
         <!-- About Us -->
         <header id="inner">
-            <h1>Find your new book!</h1>
+            <h1>Find your dream book!</h1>
             <p>Etiam quis viverra lorem, in semper lorem. Sed nisl arcu euismod sit amet nisi euismod sed cursus arcu elementum ipsum arcu vivamus quis venenatis orci lorem ipsum et magna feugiat veroeros aliquam. Lorem ipsum dolor sit amet nullam dolore.</p>
         </header>
 
@@ -201,4 +203,5 @@
 
 
     </div>
+</div>
 </div>

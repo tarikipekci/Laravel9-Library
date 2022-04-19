@@ -1,18 +1,15 @@
 @extends('layouts.home')
 
-@section('title','Sub Page Title')
+@section('title','Bookraria || Find Your Dream Book')
 
-@section('sidebar')
-    @parent
-
-
-    <p>This is appended to the master sidebar</p>
+@section('description')
+    The most popular Borrowing Book System in the World!
 @endsection
 
 
 @section('content')
 
-    <p>This is my body content.</p>
+    <p></p>
 
 @endsection
 
