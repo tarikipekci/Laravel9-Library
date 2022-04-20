@@ -179,12 +179,41 @@
                 <div class="col-md-12">
                     <h1 class="page-head-line">Categories</h1>
                     <h1 class="page-subhead-line">This is dummy text , you can replace it with your original text. </h1>
-
                 </div>
             </div>
-
-
-
+                        <table class ="table table-bordered" align="right">
+                            <thead>
+                            <tr>
+                                <th style="width: 10px">Id</th>
+                                <th>Title</th>
+                                <th>Keywords</th>
+                                <th>Description</th>
+                                <th>Image</th>
+                                <th>Status</th>
+                                <th style="width: 40px">Edit</th>
+                                <th style="width: 40px">Delete</th>
+                                <th style="width: 40px">Show</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($data as $rs)
+                            <tr>
+                                <td>{{$rs->id}}</td>
+                                <td>{{$rs->title}}</td>
+                                <td>{{$rs->keywords}}</td>
+                                <td>{{$rs->description}}</td>
+                                <td>{{$rs->image}}</td>
+                                <td>{{$rs->status}}</td>
+                                <td><a href="/admin/category/edit{{$rs->id}} /" class="btn btn-danger">Edit</a></td>
+                                <td><a href="/admin/category/delete{{$rs->id}}/" class="btn btn-success">Delete</a></td>
+                                <td><a href="/admin/category/show{{$rs->id}}/" class="btn btn-info">Show</a></td>
+                            </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+        </div>
+    </div>
+</div>
             <!-- /. ROW  -->
             <div class="row">
                 <div class="col-md-12">
