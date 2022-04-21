@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Categories</title>
+    <title>Edit Category</title>
 
     <!-- BOOTSTRAP STYLES-->
     <link href="{{asset('assets')}}/admin/css/bootstrap.css" rel="stylesheet" />
@@ -177,43 +177,61 @@
         <div id="page-inner">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="page-head-line">Categories</h1>
-                    <a href="/admin/category/create" class="btn btn-block btn-success btn-lg">Add Category</a>
+                    <h1 class="page-head-line"> Edit Category: {{$data->title}}</h1>
+                    <h1 class="page-subhead-line">This is dummy text , you can replace it with your original text. </h1>
+
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                Category Elements
+                            </div>
+                            <div class="panel-body">
+                                <form role="form" action="/admin/category/update/{{$data->id}}" method="post">
+                                    @csrf
+                                    <div class="form-group">
+                                        <label>Title</label>
+
+                                        <input class="form-control" type="text" placeholder="Title" name="title" value="{{$data->title}}">
+                                        <p class="help-block">Help text here.</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Keywords</label>
+                                        <input class="form-control" type="text" name="keywords" placeholder="Key Word" value="{{$data->keywords}}">
+                                        <p class="help-block">Help text here.</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Description</label>
+                                        <input class="form-control" type="text" name="description" placeholder="Description" value="{{$data->description}}">
+                                        <p class="help-block">Help text here.</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Image</label>
+                                        <div class = "custom-file">
+                                            <input type = "file" class="custom-file-input">
+                                            <label class="custom-file-label"></label>
+                                        </div>
+                                        <div class ="form-group">
+                                            <label>Status</label>
+                                            <select class ="form-control" name="status">
+                                                <option selected>{{$data->status}}</option>
+                                                <option>True</option>
+                                                <option>False</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <button type="submit" class="btn btn-primary">Update Data</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+
+
                 </div>
             </div>
-                        <table class ="table table-bordered" align="right">
-                            <thead>
-                            <tr>
-                                <th style="width: 10px">Id</th>
-                                <th>Title</th>
-                                <th>Keywords</th>
-                                <th>Description</th>
-                                <th>Image</th>
-                                <th>Status</th>
-                                <th style="width: 40px">Edit</th>
-                                <th style="width: 40px">Delete</th>
-                                <th style="width: 40px">Show</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($data as $rs)
-                            <tr>
-                                <td>{{$rs->id}}</td>
-                                <td>{{$rs->title}}</td>
-                                <td>{{$rs->keywords}}</td>
-                                <td>{{$rs->description}}</td>
-                                <td>{{$rs->image}}</td>
-                                <td>{{$rs->status}}</td>
-                                <td><a href="/admin/category/edit/{{$rs->id}}" class="btn btn-danger">Edit</a></td>
-                                <td><a href="/admin/category/delete/{{$rs->id}}" class="btn btn-success">Delete</a></td>
-                                <td><a href="/admin/category/show/{{$rs->id}}" class="btn btn-info">Show</a></td>
-                            </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-        </div>
-    </div>
-</div>
             <!-- /. ROW  -->
             <div class="row">
                 <div class="col-md-12">
