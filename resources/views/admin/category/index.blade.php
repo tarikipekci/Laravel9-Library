@@ -26,7 +26,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{asset('assets')}}/admin/index.html">COMPANY NAME</a>
+            <a class="navbar-brand" href="{{route('admin.index')}}">BOOKRARIA</a>
         </div>
 
         <div class="header-right">
@@ -56,119 +56,67 @@
                 </li>
 
 
-                <li>
-                    <a  href="{{asset('assets')}}/admin/index.html"><i class="fa fa-dashboard "></i>Dashboard</a>
+                <li class="nav-item">
+
+                    <a href="/admin" class="nav-link"><i class="nav-icon fa fa-home" style="color: maroon"></i>Dashboard</a>
+
+
                 </li>
+
                 <li>
-                    <a href="#"><i class="fa fa-desktop "></i>UI Elements <span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-shopping-cart"></i>Order <span class="fa fa-shopping-bag"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="{{asset('assets')}}/admin/panel-tabs.html"><i class="fa fa-toggle-on"></i>Tabs & Panels</a>
+                            <a href="{{asset('assets')}}/admin/panel-tabs.html"><i class="fa fa-th" style="color: yellowgreen"></i>New Orders</a>
                         </li>
                         <li>
-                            <a href="{{asset('assets')}}/admin/notification.html"><i class="fa fa-bell "></i>Notifications</a>
+                            <a href="{{asset('assets')}}/admin/notification.html"><i class="fa fa-th " style="color: black"></i>Accepted Orders</a>
                         </li>
                         <li>
-                            <a href="{{asset('assets')}}/admin/progress.html"><i class="fa fa-circle-o "></i>Progressbars</a>
+                            <a href="{{asset('assets')}}/admin/progress.html"><i class="fa fa-th " style="color: purple"></i>Shipping Orders</a>
                         </li>
                         <li>
-                            <a href="{{asset('assets')}}/admin/buttons.html"><i class="fa fa-code "></i>Buttons</a>
+                            <a href="{{asset('assets')}}/admin/buttons.html"><i class="fa fa-th" style="color:deeppink;"></i>Completed Orders</a>
                         </li>
-                        <li>
-                            <a href="{{asset('assets')}}/admin/icons.html"><i class="fa fa-bug "></i>Icons</a>
-                        </li>
-                        <li>
-                            <a href="{{asset('assets')}}/admin/wizard.html"><i class="fa fa-bug "></i>Wizard</a>
-                        </li>
-                        <li>
-                            <a href="{{asset('assets')}}/admin/typography.html"><i class="fa fa-edit "></i>Typography</a>
-                        </li>
-                        <li>
-                            <a href="{{asset('assets')}}/admin/grid.html"><i class="fa fa-eyedropper "></i>Grid</a>
-                        </li>
-
 
                     </ul>
-                </li>
+
                 <li>
-                    <a href="#"><i class="fa fa-yelp "></i>Extra Pages <span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="{{asset('assets')}}/admin/invoice.html"><i class="fa fa-coffee"></i>Invoice</a>
-                        </li>
-                        <li>
-                            <a href="{{asset('assets')}}/admin/pricing.html"><i class="fa fa-flash "></i>Pricing</a>
-                        </li>
-                        <li>
-                            <a href="{{asset('assets')}}/admin/component.html"><i class="fa fa-key "></i>Components</a>
-                        </li>
-                        <li>
-                            <a href="{{asset('assets')}}/admin/social.html"><i class="fa fa-send "></i>Social</a>
-                        </li>
-
-                        <li>
-                            <a href="{{asset('assets')}}/admin/message-task.html"><i class="fa fa-recycle "></i>Messages & Tasks</a>
-                        </li>
-
-
-                    </ul>
-                </li>
-                <li>
-                    <a href="{{asset('assets')}}/admin/table.html"><i class="fa fa-flash "></i>Data Tables </a>
-
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-bicycle "></i>Forms <span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-
-                        <li>
-                            <a href="{{asset('assets')}}/admin/form.html"><i class="fa fa-desktop "></i>Basic </a>
-                        </li>
-                        <li>
-                            <a href="{{asset('assets')}}/admin/form-advance.html"><i class="fa fa-code "></i>Advance</a>
-                        </li>
-
-
-                    </ul>
-                </li>
-                <li>
-                    <a href="{{asset('assets')}}/admin/gallery.html"><i class="fa fa-anchor "></i>Gallery</a>
-                </li>
-                <li>
-                    <a href="{{asset('assets')}}/admin/error.html"><i class="fa fa-bug "></i>Error Page</a>
-                </li>
-                <li>
-                    <a href="{{asset('assets')}}/admin/login.html"><i class="fa fa-sign-in "></i>Login Page</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-sitemap "></i>Multilevel Link <span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="#"><i class="fa fa-bicycle "></i>Second Level Link</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-flask "></i>Second Level Link</a>
-                        </li>
-                        <li>
-                            <a href="#">Second Level Link<span class="fa arrow"></span></a>
-                            <ul class="nav nav-third-level">
-                                <li>
-                                    <a href="#"><i class="fa fa-plus "></i>Third Level Link</a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fa fa-comments-o "></i>Third Level Link</a>
-                                </li>
-
-                            </ul>
-
-                        </li>
-                    </ul>
+                    <a href="/admin/category"><i class="fa fa-table" style="color: #00CA79"></i>Categories</a>
                 </li>
 
                 <li>
-                    <a class="active-menu" href="{{asset('assets')}}/admin/blank.html"><i class="fa fa-square-o "></i>Blank Page</a>
+                    <a href="/admin/product"><i class="fa fa-coffee" style="color: dodgerblue"></i>Products</a>
+                </li>
+                <li>
+                    <a href="/admin/comment"><i class="fa fa-comment " style="color: brown"></i>Comments</a>
+                </li>
+                <li>
+                    <a href="/admin/faq"><i class="fa fa-question " style="color: orangered"></i>FAQ</a>
+                </li>
+                <li>
+                    <a href="/admin/messages"><i class="fa fa-send " style="color: #b3d4fc"></i>Messages</a>
+                </li>
+
+                <li>
+                    <a href="/admin/user"><i class="fa fa-user" style="color: #8499e7"></i>Users</a>
+                </li>
+
+                <li>
+                    <a href="/admin/social"><i class="fa fa-archive " style="color: #ffe8a1"></i>Social</a>
+                </li>
+                <li>
+                    <a href="/admin/social"><i ></i></a>
+                </li>
+
+                <li>
+                    <a href="/admin/social"><i ></i></a>
+                </li>
+                <li>
+                    <a href="/admin/setting"><i class="fa fa-space-shuttle"></i>Settings</a>
                 </li>
             </ul>
+
         </div>
 
     </nav>
@@ -178,7 +126,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="page-head-line">Categories</h1>
-                    <a href="/admin/category/create" class="btn btn-block btn-success btn-lg">Add Category</a>
+                    <a href="{{route('admin.category.create')}}" class="btn btn-block btn-success btn-lg">Add Category</a>
                 </div>
             </div>
                         <table class ="table table-bordered" align="right">
@@ -202,11 +150,15 @@
                                 <td>{{$rs->title}}</td>
                                 <td>{{$rs->keywords}}</td>
                                 <td>{{$rs->description}}</td>
-                                <td>{{$rs->image}}</td>
+                                    @if ($rs->image)
+                                <td>
+                                    <img src="{{Storage::url($rs->image)}}" style="height: 100px">
+                                    @endif
+                                </td>
                                 <td>{{$rs->status}}</td>
-                                <td><a href="/admin/category/edit/{{$rs->id}}" class="btn btn-danger">Edit</a></td>
-                                <td><a href="/admin/category/delete/{{$rs->id}}" class="btn btn-success">Delete</a></td>
-                                <td><a href="/admin/category/show/{{$rs->id}}" class="btn btn-info">Show</a></td>
+                                <td><a href="{{route('admin.category.edit',['id'=>$rs->id])}}" class="btn btn-danger">Edit</a></td>
+                                <td><a href="{{route('admin.category.destroy',['id'=>$rs->id])}}" class="btn btn-success" onclick="return confirm('Deleting!! Are you sure ?')">Delete</a></td>
+                                <td><a href="{{route('admin.category.show',['id'=>$rs->id])}}" class="btn btn-info">Show</a></td>
                             </tr>
                             @endforeach
                             </tbody>
@@ -217,11 +169,7 @@
             <!-- /. ROW  -->
             <div class="row">
                 <div class="col-md-12">
-                    <div class="alert alert-info">
-                        This is a free responsive admin under cc3.0 license, so you can use it for personal and commercial use.
-                        <br />
-                        Enjoy this admin and for more please keep looking <a href="http://www.binarytheme.com/" target="_blank">BinaryTheme.com</a>
-                    </div>
+
                 </div>
             </div>
 
@@ -232,7 +180,7 @@
 </div>
 <!-- /. WRAPPER  -->
 <div id="footer-sec">
-    &copy; 2014 YourCompany | Design By : <a href="http://www.binarytheme.com/" target="_blank">BinaryTheme.com</a>
+    &copy; 2022 Bookraria | Design By : <a href="http://www.binarytheme.com/" target="_blank">BinaryTheme.com</a>
 </div>
 <!-- /. FOOTER  -->
 <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
