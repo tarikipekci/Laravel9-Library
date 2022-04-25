@@ -136,6 +136,25 @@
                             <div class="panel-body">
                                 <form role="form" action="{{route('admin.category.update', ['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
                                     @csrf
+
+                                    <div class="card-body">
+
+                                        <div class="form-group">
+                                            <label>Parent Category</label>
+
+                                            <select class="form-control select2" name="parent_id" style="...">
+                                                <option value="0" selected="selected">Main Category</option>
+
+                                                @foreach($datalist as $rs)
+                                                    <option value="{{$rs->id}}">{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title)}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+
+
+                                    </div>
+
+
                                     <div class="form-group">
                                         <label>Title</label>
 
