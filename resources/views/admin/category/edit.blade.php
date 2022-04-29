@@ -203,9 +203,9 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="alert alert-info">
-                        This is a free responsive admin under cc3.0 license, so you can use it for personal and commercial use.
+                        null.
                         <br />
-                        Enjoy this admin and for more please keep looking <a href="http://www.binarytheme.com/" target="_blank">BinaryTheme.com</a>
+                        null <a href="http://www.binarytheme.com/" target="_blank">BinaryTheme.com</a>
                     </div>
                 </div>
             </div>
@@ -217,7 +217,7 @@
 </div>
 <!-- /. WRAPPER  -->
 <div id="footer-sec">
-    &copy; 2014 YourCompany | Design By : <a href="http://www.binarytheme.com/" target="_blank">BinaryTheme.com</a>
+    &copy; 2022 BOOKRARIA | Design By : <a href="http://www.binarytheme.com/" target="_blank">BinaryTheme.com</a>
 </div>
 <!-- /. FOOTER  -->
 <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->

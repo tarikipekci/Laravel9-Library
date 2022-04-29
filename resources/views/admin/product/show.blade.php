@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Create List</title>
+    <title>Show Product</title>
 
     <!-- BOOTSTRAP STYLES-->
     <link href="{{asset('assets')}}/admin/css/bootstrap.css" rel="stylesheet" />
@@ -26,7 +26,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{route('admin.index')}}">BOOKRARIA</a>
+            <a class="navbar-brand" href="{{asset('assets')}}/admin/index.html">BOOKRARIA</a>
         </div>
 
         <div class="header-right">
@@ -125,74 +125,112 @@
         <div id="page-inner">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="page-head-line">Add Category</h1>
-                    <h1 class="page-subhead-line">This is dummy text , you can replace it with your original text. </h1>
 
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <div class="panel panel-info">
+                    <div class="col-md-6">
+                        <!--    Striped Rows Table  -->
+
+                        <h1 class="page-head-line"> Show Product: {{$data->title}}</h1>
+
+                        <a href="{{route('admin.product.edit',['id'=>$data->id])}}" class="btn btn-block btn-success btn-lg" style="width: 100px">Edit</a>
+                        <br>
+
+                        <a href="{{route('admin.product.destroy',['id'=>$data->id])}}" onclick="return confirm('Deleting !! Are you sure?')" class="btn btn-block btn-success btn-lg" style="width: 100px">Delete</a>
+
+                        <br>
+
+                        <div class="panel panel-default">
+
                             <div class="panel-heading">
-                                Category Elements
+                                <b>Product Details</b>
                             </div>
                             <div class="panel-body">
-                                <form role="form" action="{{route('admin.category.store')}}" method="post" enctype="multipart/form-data">
-                                    @csrf
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>Details</th>
 
-                                   <div class="card-body">
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td style="width: 90px"><b>Id</b></td>
+                                            <td>{{$data->id}}</td>
 
-                                       <div class="form-group">
-                                           <label>Parent Category</label>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Title</b></td>
+                                            <td>{{$data->title}}</td>
 
-                                           <select class="form-control select2" name="parent_id" style="...">
-                                               <option value="0" selected="selected">Main Category</option>
+                                        </tr>
 
-                                                @foreach($data as $rs)
-                                                    <option value="{{$rs->id}}">{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title)}}</option>
-                                               @endforeach
-                                           </select>
-                                       </div>
+                                        <tr>
+                                            <td style="width: 90px"><b>Keywords</b></td>
+                                            <td>{{$data->keywords}}</td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td style="width: 90px"><b>Description</b></td>
+                                            <td>{{$data->description}}</td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td><b>Price</b></td>
+                                            <td>{{$data->price}}</td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td><b>Amount</b></td>
+                                            <td>{{$data->amount}}</td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td style="width: 90px"><b>Number of Pages</b></td>
+                                            <td>{{$data->page}}</td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td><b>Image</b></td>
+                                            <td>
+
+                                                @if ($data->image)
+                                                    <img src="{{Storage::url($data->image)}}" style="height: 100px">
+                                                @endif
+                                            </td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td><b>Status</b></td>
+                                            <td>{{$data->status}}</td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td><b>Created Date</b></td>
+                                            <td>{{$data->created_at}}</td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td><b>Update Date</b></td>
+                                            <td>{{$data->updated_at}}</td>
+
+                                        </tr>
 
 
-                                   </div>
-
-
-                                    <div class="form-group">
-                                        <label>Title</label>
-
-                                        <input class="form-control" type="text" placeholder="Title" name="title">
-                                        <p class="help-block"></p>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Keywords</label>
-                                        <input class="form-control" type="text" name="keywords" placeholder="Key Word">
-                                        <p class="help-block"></p>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Description</label>
-                                        <input class="form-control" type="text" name="description" placeholder="Description">
-                                        <p class="help-block"></p>
-                                    </div>
-                                    <div class="form-group">
-                                    <label for="exampleInputFile">Image</label>
-                                    <div class = "custom-file">
-                                        <input type = "file" class="custom-file-input" name="image">
-                                        <label class="custom-file-label" for="exampleInputFile"></label>
-                                    </div>
-                                        <div class ="form-group">
-                                            <label>Status</label>
-                                            <select class ="form-control">
-                                                <option>True</option>
-                                                <option>False</option>
-                                            </select>
-                                  </div>
-                                    </div>
-                                    <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary">Save</button>
-                                    </div>
-                                </form>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
+                        <!--  End  Striped Rows Table  -->
                     </div>
-
 
 
                 </div>
@@ -200,11 +238,7 @@
             <!-- /. ROW  -->
             <div class="row">
                 <div class="col-md-12">
-                    <div class="alert alert-info">
-                        n
-                        <br />
-                        n <a href="http://www.binarytheme.com/" target="_blank">BinaryTheme.com</a>
-                    </div>
+
                 </div>
             </div>
 

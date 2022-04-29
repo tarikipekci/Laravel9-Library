@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Create List</title>
+    <title>Create Product</title>
 
     <!-- BOOTSTRAP STYLES-->
     <link href="{{asset('assets')}}/admin/css/bootstrap.css" rel="stylesheet" />
@@ -125,29 +125,36 @@
         <div id="page-inner">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="page-head-line">Add Category</h1>
+                    <h1 class="page-head-line">Add Product</h1>
                     <h1 class="page-subhead-line">This is dummy text , you can replace it with your original text. </h1>
 
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="panel panel-info">
                             <div class="panel-heading">
-                                Category Elements
+                                Product Elements
                             </div>
                             <div class="panel-body">
-                                <form role="form" action="{{route('admin.category.store')}}" method="post" enctype="multipart/form-data">
+                                <form role="form" action="{{route('admin.product.store')}}" method="post" enctype="multipart/form-data">
                                     @csrf
 
                                    <div class="card-body">
 
                                        <div class="form-group">
-                                           <label>Parent Category</label>
+                                           <label>Parent Product</label>
 
-                                           <select class="form-control select2" name="parent_id" style="...">
+                                           <select class="form-control select2" name="category_id" style="...">
                                                <option value="0" selected="selected">Main Category</option>
 
-                                                @foreach($data as $rs)
-                                                    <option value="{{$rs->id}}">{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title)}}</option>
-                                               @endforeach
+                                               <option value="7">Novel</option>
+                                               <option value="8">Php Programming Language</option>
+                                               <option value="9">C Programming Language</option>
+                                               <option value="10">Computer</option>
+                                               <option value="11">Math</option>
+                                               <option value="12">Chemistry</option>
+                                               <option value="13">Physics</option>
+                                               <option value="14">English</option>
+                                               <option value="16">English Preparation</option>
+                                               <option value="24">Story</option>
                                            </select>
                                        </div>
 
@@ -171,6 +178,32 @@
                                         <input class="form-control" type="text" name="description" placeholder="Description">
                                         <p class="help-block"></p>
                                     </div>
+
+                                    <div class="form-group">
+                                        <label>Price</label>
+                                        <input class="form-control" type="number" name="price" placeholder="Price" value="0">
+                                        <p class="help-block"></p>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Amount</label>
+                                        <input class="form-control" type="number" name="amount" placeholder="Amount" value="0">
+                                        <p class="help-block"></p>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Number of Pages</label>
+                                        <input class="form-control" type="number" name="page" placeholder="Number of Pages" value="0">
+                                        <p class="help-block"></p>
+                                    </div>
+
+                                    <div class="form-group">
+                                       <label for="exampleInputEmail">Details</label>
+                                        <textarea class="form-control" name="detail">
+
+                                        </textarea>
+                                    </div>
+
                                     <div class="form-group">
                                     <label for="exampleInputFile">Image</label>
                                     <div class = "custom-file">
@@ -201,9 +234,9 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="alert alert-info">
-                        n
+                        This is a free responsive admin under cc3.0 license, so you can use it for personal and commercial use.
                         <br />
-                        n <a href="http://www.binarytheme.com/" target="_blank">BinaryTheme.com</a>
+                        Enjoy this admin and for more please keep looking <a href="http://www.binarytheme.com/" target="_blank">BinaryTheme.com</a>
                     </div>
                 </div>
             </div>
