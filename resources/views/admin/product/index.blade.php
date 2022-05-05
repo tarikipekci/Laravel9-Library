@@ -138,6 +138,7 @@
                                 <th>Price</th>
                                 <th>Amount</th>
                                 <th>Image</th>
+                                <th>Image Gallery</th>
                                 <th>Page</th>
                                 <th>Status</th>
                                 <th style="width: 40px">Edit</th>
@@ -150,7 +151,7 @@
                             @foreach($data as $rs)
                             <tr>
                                 <td>{{$rs->id}}</td>
-                                <td>{{\App\Http\Controllers\AdminPanel\AdminProductController::getParentsTree($rs,$rs->title)}}</td>
+                                <td>{{$rs->category->title}}</td>
                                 <td>{{$rs->title}}</td>
                                 <td>{{$rs->price}}</td>
                                 <td>{{$rs->amount}}</td>
@@ -160,6 +161,7 @@
                                     <img src="{{Storage::url($rs->image)}}" style="height: 100px">
                                     @endif
                                 </td>
+                                <td> <img src="{{asset('assets')}}/admin/img/gallery.jpg" width="60px"></td>
                                 <td>{{$rs->page}}</td>
                                 <td>{{$rs->status}}</td>
                                 <td><a href="{{route('admin.product.edit',['id'=>$rs->id])}}" class="btn btn-danger">Edit</a></td>
