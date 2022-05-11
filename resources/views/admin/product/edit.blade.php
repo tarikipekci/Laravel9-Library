@@ -141,12 +141,11 @@
 
                                         <div class="form-group">
                                             <label>Parent Product</label>
-
                                             <select class="form-control select2" name="category_id" style="...">
-                                                <option value="0" selected="selected">Main Product</option>
-
                                                 @foreach($datalist as $rs)
-                                                    <option value="{{$rs->id}}">{{\App\Http\Controllers\AdminPanel\AdminProductController::getParentsTree($rs,$rs->title)}}</option>
+                                                    <option value="{{$rs->id}}" @if($rs->id == $data->category->id) selected="selected" @endif">
+                                                        {{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title)}}
+                                                    </option>
                                                 @endforeach
                                             </select>
                                         </div>

@@ -129,7 +129,7 @@
                     <div class="col-md-6">
                         <!--    Striped Rows Table  -->
 
-                        <h1 class="page-head-line"> Show Product: {{$data->title}}</h1>
+                        <h1 class="page-head-line"> Show Product: </h1>
 
                         <a href="{{route('admin.product.edit',['id'=>$data->id])}}" class="btn btn-block btn-success btn-lg" style="width: 100px">Edit</a>
                         <br>
@@ -160,14 +160,16 @@
                                         </tr>
 
                                         <tr>
-                                            <td><b>Category</b></td>
-                                            <td>{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($data->category, $data->category->title)}}</td>
+                                            <th>Category</th>
+                                            <td>
+                                                {{$data->category->title}}
+                                            </td>
 
                                         </tr>
 
                                         <tr>
                                             <td><b>Title</b></td>
-                                            <td>{{$data->title}}</td>
+                                            <td>{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($data->category, $data->category->title)}}</td>
 
                                         </tr>
 

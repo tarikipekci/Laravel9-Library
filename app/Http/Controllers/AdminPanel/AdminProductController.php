@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\AdminPanel;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -53,7 +54,7 @@ class AdminProductController extends Controller
     public function create()
     {
         //
-        $data= Product::all();
+        $data= Category::all();
         return view('admin.product.create' , ['data' => $data]);
 
     }
@@ -113,7 +114,7 @@ class AdminProductController extends Controller
     {
         //
         $data= Product::find($id);
-        $datalist= Product::all();
+        $datalist= Category::all();
         return view('admin.product.edit' , ['data' => $data , 'datalist' =>$datalist]);
     }
 

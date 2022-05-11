@@ -143,18 +143,11 @@
                                            <label>Parent Product</label>
 
                                            <select class="form-control select2" name="category_id" style="...">
-                                               <option value="0" selected="selected">Main Category</option>
-
-                                               <option value="7">Novel</option>
-                                               <option value="8">Php Programming Language</option>
-                                               <option value="9">C Programming Language</option>
-                                               <option value="10">Computer</option>
-                                               <option value="11">Math</option>
-                                               <option value="12">Chemistry</option>
-                                               <option value="13">Physics</option>
-                                               <option value="14">English</option>
-                                               <option value="16">English Preparation</option>
-                                               <option value="24">Story</option>
+                                               @foreach($data as $rs)
+                                                    <option value="{{$rs->id}}">
+                                                        {{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title)}}
+                                                    </option>
+                                               @endforeach
                                            </select>
                                        </div>
 
