@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Products</title>
+    <title>Show Category</title>
 
     <!-- BOOTSTRAP STYLES-->
     <link href="{{asset('assets')}}/admin/css/bootstrap.css" rel="stylesheet" />
@@ -26,7 +26,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{route('admin.index')}}">BOOKRARIA</a>
+            <a class="navbar-brand" href="{{asset('assets')}}/admin/index.html">BOOKRARIA</a>
         </div>
 
         <div class="header-right">
@@ -125,59 +125,93 @@
         <div id="page-inner">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="page-head-line">PRODUCTS</h1>
-                    <a href="{{route('admin.product.create')}}" class="btn btn-block btn-success btn-lg">Add Product</a>
+
+                    <div class="col-md-6">
+                        <!--    Striped Rows Table  -->
+
+                        <h1 class="page-head-line"> Show Category: {{$data->title}}</h1>
+
+                        <a href="{{route('admin.category.edit',['id'=>$data->id])}}" class="btn btn-block btn-success btn-lg" style="width: 100px">Edit</a>
+                        <br>
+
+                        <a href="{{route('admin.category.destroy',['id'=>$data->id])}}" onclick="return confirm('Deleting !! Are you sure?')" class="btn btn-block btn-success btn-lg" style="width: 100px">Delete</a>
+
+                        <br>
+
+                        <div class="panel panel-default">
+
+                            <div class="panel-heading">
+                                <b>Product Details</b>
+                            </div>
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>Details</th>
+
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td style="width: 90px"><b>Id</b></td>
+                                            <td>{{$data->id}}</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td><b>Title</b></td>
+                                            <td>{{$data->title}}</td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td style="width: 90px"><b>Keywords</b></td>
+                                            <td>{{$data->keywords}}</td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td style="width: 90px"><b>Description</b></td>
+                                            <td>{{$data->description}}</td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td><b>Image</b></td>
+                                            <td>{{$data->image}}</td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td><b>Status</b></td>
+                                            <td>{{$data->status}}</td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td><b>Created Date</b></td>
+                                            <td>{{$data->created_at}}</td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td><b>Update Date</b></td>
+                                            <td>{{$data->updated_at}}</td>
+
+                                        </tr>
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!--  End  Striped Rows Table  -->
+                    </div>
+
+
                 </div>
             </div>
-                        <table class ="table table-bordered" align="right">
-                            <thead>
-                            <tr>
-                                <th style="width: 10px">Id</th>
-                                <th>Category</th>
-                                <th>Title</th>
-                                <th>Price</th>
-                                <th>Amount</th>
-                                <th>Image</th>
-                                <th>Image Gallery</th>
-                                <th>Page</th>
-                                <th>Status</th>
-                                <th style="width: 40px">Edit</th>
-                                <th style="width: 40px">Delete</th>
-                                <th style="width: 40px">Show</th>
-                                <a href="#"></a>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($data as $rs)
-                            <tr>
-                                <td>{{$rs->id}}</td>
-                                <td>{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title)}}</td>
-                                <td>{{$rs->title}}</td>
-                                <td>{{$rs->price}}</td>
-                                <td>{{$rs->amount}}</td>
-
-                                <td>
-                                    @if ($rs->image)
-                                    <img src="{{Storage::url($rs->image)}}" style="height: 100px">
-                                    @endif
-                                </td>
-                                <td> <a href="{{route('admin.image.index', ['pid' => $rs->id])}}"
-                                        onclick="return !window.open(this.href, '' , 'top=50 , left=100 , width=1100 , height=700')">
-                                    <img src="{{asset('assets')}}/admin/img/gallery.jpg" width="60px">
-                                    </a>
-                                </td>
-                                <td>{{$rs->page}}</td>
-                                <td>{{$rs->status}}</td>
-                                <td><a href="{{route('admin.product.edit',['id'=>$rs->id])}}" class="btn btn-danger">Edit</a></td>
-                                <td><a href="{{route('admin.product.destroy',['id'=>$rs->id])}}" class="btn btn-success" onclick="return confirm('Deleting!! Are you sure ?')">Delete</a></td>
-                                <td><a href="{{route('admin.product.show',['id'=>$rs->id])}}" class="btn btn-info">Show</a></td>
-                            </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-        </div>
-    </div>
-</div>
             <!-- /. ROW  -->
             <div class="row">
                 <div class="col-md-12">
@@ -192,7 +226,7 @@
 </div>
 <!-- /. WRAPPER  -->
 <div id="footer-sec">
-    &copy; 2022 Bookraria | Design By : <a href="http://www.binarytheme.com/" target="_blank">BinaryTheme.com</a>
+    &copy; 2022 BOOKRARIA | Design By : <a href="http://www.binarytheme.com/" target="_blank">BinaryTheme.com</a>
 </div>
 <!-- /. FOOTER  -->
 <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->

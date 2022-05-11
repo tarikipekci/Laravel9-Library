@@ -72,7 +72,7 @@ class CategoryController extends Controller
         $data->title = $request->title;
         $data->keywords = $request->keywords;
         $data->description = $request->description;
-        $data->status = 0;
+        $data->status =$request->status;
 
         if ($request->file('image')){
 
