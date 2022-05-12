@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Create List</title>
@@ -143,7 +145,6 @@
                                            <label>Parent Category</label>
 
                                            <select class="form-control select2" name="parent_id" style="...">
-                                               <option value="0" selected="selected">Main Category</option>
 
                                                 @foreach($data as $rs)
                                                     <option value="{{$rs->id}}">{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title)}}</option>
@@ -179,11 +180,13 @@
                                     </div>
                                         <div class ="form-group">
                                             <label>Status</label>
-                                            <select class ="form-control">
-                                                <option>True</option>
-                                                <option>False</option>
+                                            <select class ="form-control" name="status">
+                                                <option selected>False</option>
+                                                <option>1</option>
+                                                <option>0</option>
+
                                             </select>
-                                  </div>
+                                        </div>
                                     </div>
                                     <div class="card-footer">
                                         <button type="submit" class="btn btn-primary">Save</button>

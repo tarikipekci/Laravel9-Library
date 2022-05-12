@@ -15,6 +15,9 @@
     <link href="{{asset('assets')}}/admin/css/custom.css" rel="stylesheet" />
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+
 </head>
 <body>
 <div id="wrapper">
@@ -193,6 +196,15 @@
                                     </div>
 
                                     <div class="form-group">
+                                        <label for="exampleInputEmail">Detail Inf</label>
+
+                                        <textarea class="textarea" id="detail" name="detail">
+                                                {{$data->detail}}
+                                        </textarea>
+
+                                    </div>
+
+                                    <div class="form-group">
                                         <label for="exampleInputFile">Image</label>
                                         <div class = "custom-file">
                                             <input type = "file" class="custom-file-input" name="image">
@@ -250,6 +262,18 @@
 <script src="{{asset('assets')}}/admin/js/jquery.metisMenu.js"></script>
 <!-- CUSTOM SCRIPTS -->
 <script src="{{asset('assets')}}/admin/js/custom.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
+<script>
+
+    $(function () {
+        $('.textarea').summernote()
+
+    })
+
+</script>
+
 
 
 </body>

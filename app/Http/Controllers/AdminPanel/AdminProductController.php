@@ -74,7 +74,7 @@ class AdminProductController extends Controller
         $data->title = $request->title;
         $data->keywords = $request->keywords;
         $data->description = $request->description;
-        $data->status =0;
+        $data->status = $request->status;
         $data->detail = $request->detail;
         $data->price = $request->price;
         $data->amount = $request->amount;

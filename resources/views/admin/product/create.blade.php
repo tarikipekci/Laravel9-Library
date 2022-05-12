@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+
+
     <meta charset="utf-8" />
+
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Create Product</title>
-
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
     <!-- BOOTSTRAP STYLES-->
     <link href="{{asset('assets')}}/admin/css/bootstrap.css" rel="stylesheet" />
     <!-- FONTAWESOME STYLES-->
@@ -192,9 +196,26 @@
 
                                     <div class="form-group">
                                        <label for="exampleInputEmail">Details</label>
-                                        <textarea class="form-control" name="detail">
+                                        <textarea class="form-control" id="detail" name="detail">
 
                                         </textarea>
+
+                                        <script>
+                                            ClassicEditor
+                                                .create( document.querySelector( '#detail' ) )
+                                                .then( editor => {
+                                                    console.log( editor );
+                                                } )
+                                                .catch( error => {
+                                                    console.error( error );
+                                                } );
+                                        </script>
+
+
+
+                                        </script>
+
+
                                     </div>
 
                                     <div class="form-group">
@@ -206,8 +227,8 @@
                                         <div class ="form-group">
                                             <label>Status</label>
                                             <select class ="form-control">
-                                                <option>True</option>
-                                                <option>False</option>
+                                                <option>1</option>
+                                                <option>0</option>
                                             </select>
                                   </div>
                                     </div>

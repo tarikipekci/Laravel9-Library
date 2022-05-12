@@ -9,7 +9,7 @@
             </button>
             <a class="navbar-brand" href="index.html">COMPANY NAME</a>
         </div>
-
+        <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
         <div class="header-right">
 
             <a href="message-task.html" class="btn btn-info" title="New Message"><b>30 </b><i class="fa fa-envelope-o fa-2x"></i></a>

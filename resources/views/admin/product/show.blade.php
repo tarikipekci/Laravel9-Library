@@ -162,14 +162,14 @@
                                         <tr>
                                             <th>Category</th>
                                             <td>
-                                                {{$data->category->title}}
+                                                {{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($data->category, $data->category->title)}}
                                             </td>
 
                                         </tr>
 
                                         <tr>
                                             <td><b>Title</b></td>
-                                            <td>{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($data->category, $data->category->title)}}</td>
+                                            <td>{{$data->title}}</td>
 
                                         </tr>
 
@@ -200,6 +200,12 @@
                                         <tr>
                                             <td style="width: 90px"><b>Number of Pages</b></td>
                                             <td>{{$data->page}}</td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td style="width: 90px"><b>Detail Inf</b></td>
+                                            <td>{!! $data->detail !!}</td>
 
                                         </tr>
 
