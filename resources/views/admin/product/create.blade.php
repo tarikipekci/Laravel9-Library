@@ -210,12 +210,6 @@
                                                     console.error( error );
                                                 } );
                                         </script>
-
-
-
-                                        </script>
-
-
                                     </div>
 
                                     <div class="form-group">
@@ -226,11 +220,13 @@
                                     </div>
                                         <div class ="form-group">
                                             <label>Status</label>
-                                            <select class ="form-control">
+                                            <select class ="form-control" name="status">
+                                                <option selected>0</option>
                                                 <option>1</option>
                                                 <option>0</option>
+
                                             </select>
-                                  </div>
+                                        </div>
                                     </div>
                                     <div class="card-footer">
                                         <button type="submit" class="btn btn-primary">Save</button>

@@ -181,7 +181,7 @@
                                         <div class ="form-group">
                                             <label>Status</label>
                                             <select class ="form-control" name="status">
-                                                <option selected>False</option>
+                                                <option selected>0</option>
                                                 <option>1</option>
                                                 <option>0</option>
 

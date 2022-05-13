@@ -13,11 +13,8 @@
 <body class="is-preload">
 
 @include('home._header')
-@include('home._menu')
 
-@section('content')
-Content
-@show
+@yield('content')
 
 @include('home._footer')
 @yield('footerjs')
