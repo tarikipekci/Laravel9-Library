@@ -1,17 +1,36 @@
 <!-- Wrapper -->
 <div id="wrapper">
     <!-- Menu -->
-    <nav id="menu">
+
+
+    @php
+
+        $mainCategories = \App\Http\Controllers\HomeController::mainCategorylist()
+
+    @endphp
+
+    <nav id="menu" class="category-nav" @if(!@isset($page)) show-on-click @endif>
         <h2>Menu</h2>
         <ul>
+
             <li><a href="index.html" class="active">Home</a></li>
 
             <li><a href="products.html">Products</a></li>
 
+            @foreach($mainCategories as $rs)
+                @if(count($rs->children))
+                    <li class="menu-item-has-children"><a href="/categoryproducts/{{$rs->id}}/{{$rs->title}}"></a>
+                        <ul>
+                            @include('home.categorytree',['children'=>$rs->children])
+                        </ul>
+                    </li>
+                @else
+                    <li><a href="/categoryproducts/{{$rs->id}}/{{$rs->title}}">{{$rs->title}}</a></li>
+                @endif
+            @endforeach
             <li><a href="checkout.html">Checkout</a></li>
 
-            <li>
-                <a href="#" class="dropdown-toggle">About</a>
+            <li><a href="#" class="dropdown-toggle">About</a>
 
                 <ul>
                     <li><a href="about.html">About Us</a></li>
@@ -19,12 +38,14 @@
                     <li><a href="testimonials.html">Testimonials</a></li>
                     <li><a href="terms.html">Terms</a></li>
                 </ul>
+
             </li>
 
             <li><a href="contact.html">Contact Us</a></li>
         </ul>
-    </nav>
 
+
+    </nav>
     <!-- Main -->
     <div id="main">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -62,9 +83,7 @@
             <!-- About Us -->
             <header id="inner">
                 <h1>Find your dream book!</h1>
-                <p>Etiam quis viverra lorem, in semper lorem. Sed nisl arcu euismod sit amet nisi euismod sed cursus
-                    arcu elementum ipsum arcu vivamus quis venenatis orci lorem ipsum et magna feugiat veroeros aliquam.
-                    Lorem ipsum dolor sit amet nullam dolore.</p>
+                <p>Welcome to a new world full of unique books!</p>
             </header>
 
             <br>
@@ -72,96 +91,36 @@
             <h2 class="h2">Featured Products</h2>
 
             <!-- Products -->
-            <section class="tiles">
-                <article class="style1">
+            <div>
+
+
+                <section class="tiles">
+                    @foreach($productlist1 as $rs)
+
+                        <article class="style2">
+
 									<span class="image">
-										<img src="images/product-1-720x480.jpg" alt=""/>
+										<img src="{{Storage::url($rs->image)}}" style="height: 300px" height="300px"
+                                             width="270px" alt=""/>
 									</span>
-                    <a href="product-details.html">
-                        <h2>Lorem ipsum dolor sit amet, consectetur</h2>
+                            <a href="product/{{$rs->id}}">
+                                <h2>{{$rs->title}}</h2>
 
-                        <p>
-                            <del>$19.00</del>
-                            <strong>$19.00</strong></p>
+                                <p>
+                                    <del>{{$rs->price * 2.10}}</del>
+                                    <strong>{{$rs->price}}</strong></p>
 
-                        <p>Vestibulum id est eu felis vulputate hendrerit uspendisse dapibus turpis in </p>
-                    </a>
-                </article>
-                <article class="style2">
-									<span class="image">
-										<img src="images/product-2-720x480.jpg" alt=""/>
-									</span>
-                    <a href="product-details.html">
-                        <h2>Lorem ipsum dolor sit amet, consectetur</h2>
+                                <p>{{$rs->description}}</p>
+                            </a>
 
-                        <p>
-                            <del>$19.00</del>
-                            <strong>$19.00</strong></p>
 
-                        <p>Vestibulum id est eu felis vulputate hendrerit uspendisse dapibus turpis in </p>
-                    </a>
-                </article>
-                <article class="style3">
-									<span class="image">
-										<img src="images/product-3-720x480.jpg" alt=""/>
-									</span>
-                    <a href="product-details.html">
-                        <h2>Lorem ipsum dolor sit amet, consectetur</h2>
+                        </article>
 
-                        <p>
-                            <del>$19.00</del>
-                            <strong>$19.00</strong></p>
+                    @endforeach
 
-                        <p>Vestibulum id est eu felis vulputate hendrerit uspendisse dapibus turpis in </p>
-                    </a>
-                </article>
 
-                <article class="style4">
-									<span class="image">
-										<img src="images/product-4-720x480.jpg" alt=""/>
-									</span>
-                    <a href="product-details.html">
-                        <h2>Lorem ipsum dolor sit amet, consectetur</h2>
-
-                        <p>
-                            <del>$19.00</del>
-                            <strong>$19.00</strong></p>
-
-                        <p>Vestibulum id est eu felis vulputate hendrerit uspendisse dapibus turpis in </p>
-                    </a>
-                </article>
-
-                <article class="style5">
-									<span class="image">
-										<img src="images/product-5-720x480.jpg" alt=""/>
-									</span>
-                    <a href="product-details.html">
-                        <h2>Lorem ipsum dolor sit amet, consectetur</h2>
-
-                        <p>
-                            <del>$19.00</del>
-                            <strong>$19.00</strong></p>
-
-                        <p>Vestibulum id est eu felis vulputate hendrerit uspendisse dapibus turpis in </p>
-                    </a>
-                </article>
-
-                <article class="style6">
-									<span class="image">
-										<img src="images/product-6-720x480.jpg" alt=""/>
-									</span>
-                    <a href="product-details.html">
-                        <h2>Lorem ipsum dolor sit amet, consectetur</h2>
-
-                        <p>
-                            <del>$19.00</del>
-                            <strong>$19.00</strong></p>
-
-                        <p>Vestibulum id est eu felis vulputate hendrerit uspendisse dapibus turpis in </p>
-                    </a>
-                </article>
-            </section>
-
+                </section>
+            </div>
             <p class="text-center"><a href="products.html">More Books &nbsp;<i class="fa fa-long-arrow-right"></i></a>
             </p>
 
@@ -173,14 +132,12 @@
                     <li data-target="#a" data-slide-to="1"></li>
                     <li data-target="#a" data-slide-to="2"></li>
                 </ol>
-                @php
-                    $count=1;
-                @endphp
 
                 <div class="carousel-inner">
                     @foreach($sliderdata as $rs)
                         <div class="carousel-item @if($rs->id==$slide->id) active @endif">
-                            <img class="d-block w-100" src="{{\Illuminate\Support\Facades\Storage::url($rs->image)}}" alt="First slide">
+                            <img class="d-block w-100" src="{{\Illuminate\Support\Facades\Storage::url($rs->image)}}"
+                                 alt="First slide">
                         </div>
                     @endforeach
 
@@ -195,10 +152,8 @@
                 </a>
             </div>
 
-
-
-
-            <h2 class="h2">Testimonials</h2>
+            <br>
+            <h2 class="h2">COMMENTS</h2>
 
             <div class="row">
                 <div class="col-sm-6 text-center">
