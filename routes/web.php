@@ -45,7 +45,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('index');
 
-    Route::get('/setting' , [\App\Http\Controllers\Admin\HomeController::class,'setting'])->name('setting');
+    Route::get('/setting', [\App\Http\Controllers\Admin\HomeController::class, 'setting'])->name('setting');
+    Route::post('/setting', [\App\Http\Controllers\Admin\HomeController::class, 'settingUpdate'])->name('setting.update');
 
 //Admin Category Side//
     Route::prefix('category')->name('category.')->controller(AdminCategoryController::class)->group(function () {
