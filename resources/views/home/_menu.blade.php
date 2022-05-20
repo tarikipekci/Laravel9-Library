@@ -41,7 +41,7 @@
                 </ul>
 
             </li>
-
+            <li><a href="{{route('faq')}}">FAQ</a></li>
             <li><a href="{{route('contact')}}">Contact Us</a></li>
         </ul>
 

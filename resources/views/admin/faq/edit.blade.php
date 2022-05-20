@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Create List</title>
+    <title>Edit faq</title>
 
     <!-- BOOTSTRAP STYLES-->
     <link href="{{asset('assets')}}/admin/css/bootstrap.css" rel="stylesheet"/>
@@ -15,6 +15,9 @@
     <link href="{{asset('assets')}}/admin/css/custom.css" rel="stylesheet"/>
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+
 </head>
 <body>
 <div id="wrapper">
@@ -97,7 +100,7 @@
                 </li>
 
                 <li>
-                    <a href="/admin/product"><i class="fa fa-coffee" style="color: dodgerblue"></i>Products</a>
+                    <a href="/admin/faq"><i class="fa fa-coffee" style="color: dodgerblue"></i>faqs</a>
                 </li>
                 <li>
                     <a href="/admin/comment"><i class="fa fa-comment " style="color: brown"></i>Comments</a>
@@ -136,71 +139,53 @@
         <div id="page-inner">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="page-head-line">Add Category</h1>
+                    <h1 class="page-head-line"> Edit faq: {{$data->title}}</h1>
                     <h1 class="page-subhead-line">This is dummy text , you can replace it with your original text. </h1>
 
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="panel panel-info">
                             <div class="panel-heading">
-                                Category Elements
+                                faq Elements
                             </div>
                             <div class="panel-body">
-                                <form role="form" action="{{route('admin.category.store')}}" method="post"
-                                      enctype="multipart/form-data">
+                                <form role="form" action="{{route('admin.faq.update', ['id'=>$data->id])}}"
+                                      method="post" enctype="multipart/form-data">
                                     @csrf
 
-                                    <div class="card-body">
-
-                                        <div class="form-group">
-                                            <label>Parent Category</label>
-
-                                            <select class="form-control select2" name="parent_id" style="...">
-                                                <option value="0" selected="selected">Main Category</option>
-
-                                                @foreach($data as $rs)
-                                                    <option
-                                                        value="{{$rs->id}}">{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title)}}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-
-
-                                    </div>
-
-
                                     <div class="form-group">
-                                        <label>Title</label>
+                                        <label>Question</label>
 
-                                        <input class="form-control" type="text" placeholder="Title" name="title">
+                                        <input class="form-control" type="text" placeholder="Question"
+                                               name="page" value="{{$data->question}}">
                                         <p class="help-block"></p>
                                     </div>
+
                                     <div class="form-group">
-                                        <label>Keywords</label>
-                                        <input class="form-control" type="text" name="keywords" placeholder="Key Word">
-                                        <p class="help-block"></p>
+                                        <label for="exampleInputEmail">Answer</label>
+                                        <textarea class="textarea" id="answer" name="answer">{{$data->answer}}</textarea>
+
+                                        <script>
+                                            ClassicEditor
+                                                .create(document.querySelector('#answer'))
+                                                .then(editor => {
+                                                    console.log(editor);
+                                                })
+                                                .catch(error => {
+                                                    console.error(error);
+                                                });
+                                        </script>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Description</label>
-                                        <input class="form-control" type="text" name="description"
-                                               placeholder="Description">
-                                        <p class="help-block"></p>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputFile">Image</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="image">
-                                            <label class="custom-file-label" for="exampleInputFile"></label>
-                                        </div>
                                         <div class="form-group">
                                             <label>Status</label>
-                                            <select class="form-control">
+                                            <select class="form-control" name="status">
+                                                <option selected>{{$data->status}}</option>
                                                 <option>True</option>
                                                 <option>False</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary">Save</button>
+                                        <button type="submit" class="btn btn-primary">Update Data</button>
                                     </div>
                                 </form>
                             </div>
@@ -214,9 +199,11 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="alert alert-info">
-                        n
+                        This is a free responsive admin under cc3.0 license, so you can use it for personal and
+                        commercial use.
                         <br/>
-                        n <a href="http://www.binarytheme.com/" target="_blank">BinaryTheme.com</a>
+                        Enjoy this admin and for more please keep looking <a href="http://www.binarytheme.com/"
+                                                                             target="_blank">BinaryTheme.com</a>
                     </div>
                 </div>
             </div>
@@ -240,6 +227,17 @@
 <script src="{{asset('assets')}}/admin/js/jquery.metisMenu.js"></script>
 <!-- CUSTOM SCRIPTS -->
 <script src="{{asset('assets')}}/admin/js/custom.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
+<script>
+
+    $(function () {
+        $('.textarea').summernote()
+
+    })
+
+</script>
 
 
 </body>

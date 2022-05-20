@@ -103,10 +103,10 @@
                     <a href="/admin/comment"><i class="fa fa-comment " style="color: brown"></i>Comments</a>
                 </li>
                 <li>
-                    <a href="/admin/faq"><i class="fa fa-question " style="color: orangered"></i>FAQ</a>
+                    <a href="{{route('admin.faq.index')}}"><i class="fa fa-question " style="color: orangered"></i>FAQ</a>
                 </li>
                 <li>
-                    <a href="/admin/messages"><i class="fa fa-send " style="color: #b3d4fc"></i>Messages</a>
+                    <a href="{{route('admin.message.index')}}"><i class="fa fa-send " style="color: #b3d4fc"></i>Messages</a>
                 </li>
 
                 <li>

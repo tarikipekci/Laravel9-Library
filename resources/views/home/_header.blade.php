@@ -3,6 +3,7 @@
 <!-- Header -->
 <header id="header">
     <div class="inner">
+
         <link rel="icon" type="image/x-icon" href={{Storage::url($setting->icon)}}>
         <!-- Logo -->
         <a href="#" class="logo">

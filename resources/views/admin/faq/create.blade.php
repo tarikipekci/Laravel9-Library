@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Create List</title>
 
+
+    <meta charset="utf-8"/>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Create faq</title>
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
     <!-- BOOTSTRAP STYLES-->
     <link href="{{asset('assets')}}/admin/css/bootstrap.css" rel="stylesheet"/>
     <!-- FONTAWESOME STYLES-->
@@ -97,13 +101,14 @@
                 </li>
 
                 <li>
-                    <a href="/admin/product"><i class="fa fa-coffee" style="color: dodgerblue"></i>Products</a>
+                    <a href="/admin/faq"><i class="fa fa-coffee" style="color: dodgerblue"></i>faqs</a>
                 </li>
                 <li>
                     <a href="/admin/comment"><i class="fa fa-comment " style="color: brown"></i>Comments</a>
                 </li>
                 <li>
-                    <a href="{{route('admin.faq.index')}}"><i class="fa fa-question " style="color: orangered"></i>FAQ</a>
+                    <a href="{{route('admin.faq.index')}}"><i class="fa fa-question "
+                                                              style="color: orangered"></i>FAQ</a>
                 </li>
                 <li>
                     <a href="{{route('admin.message.index')}}"><i class="fa fa-send " style="color: #b3d4fc"></i>Messages</a>
@@ -136,69 +141,49 @@
         <div id="page-inner">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="page-head-line">Add Category</h1>
-                    <h1 class="page-subhead-line">This is dummy text , you can replace it with your original text. </h1>
+                    <h1 class="page-head-line">Add Question</h1>
 
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="panel panel-info">
                             <div class="panel-heading">
-                                Category Elements
+                                FAQ Elements
                             </div>
                             <div class="panel-body">
-                                <form role="form" action="{{route('admin.category.store')}}" method="post"
+                                <form role="form" action="{{route('admin.faq.store')}}" method="post"
                                       enctype="multipart/form-data">
                                     @csrf
 
-                                    <div class="card-body">
-
-                                        <div class="form-group">
-                                            <label>Parent Category</label>
-
-                                            <select class="form-control select2" name="parent_id" style="...">
-                                                <option value="0" selected="selected">Main Category</option>
-
-                                                @foreach($data as $rs)
-                                                    <option
-                                                        value="{{$rs->id}}">{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title)}}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-
-
-                                    </div>
-
-
                                     <div class="form-group">
-                                        <label>Title</label>
+                                        <label>Question</label>
 
-                                        <input class="form-control" type="text" placeholder="Title" name="title">
+                                        <input class="form-control" type="text" placeholder="Question" name="question">
                                         <p class="help-block"></p>
                                     </div>
                                     <div class="form-group">
-                                        <label>Keywords</label>
-                                        <input class="form-control" type="text" name="keywords" placeholder="Key Word">
-                                        <p class="help-block"></p>
+                                        <label for="exampleInputEmail">Answer</label>
+                                        <textarea class="form-control" id="answer" name="answer"></textarea>
+
+                                        <script>
+                                            ClassicEditor
+                                                .create(document.querySelector('#answer'))
+                                                .then(editor => {
+                                                    console.log(editor);
+                                                })
+                                                .catch(error => {
+                                                    console.error(error);
+                                                });
+                                        </script>
                                     </div>
                                     <div class="form-group">
-                                        <label>Description</label>
-                                        <input class="form-control" type="text" name="description"
-                                               placeholder="Description">
-                                        <p class="help-block"></p>
+                                        <label>Status</label>
+                                        <select class="form-control" name="status">
+                                            <option selected>0</option>
+                                            <option>1</option>
+                                            <option>0</option>
+
+                                        </select>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputFile">Image</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="image">
-                                            <label class="custom-file-label" for="exampleInputFile"></label>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Status</label>
-                                            <select class="form-control">
-                                                <option>True</option>
-                                                <option>False</option>
-                                            </select>
-                                        </div>
-                                    </div>
+
                                     <div class="card-footer">
                                         <button type="submit" class="btn btn-primary">Save</button>
                                     </div>
@@ -208,16 +193,6 @@
                     </div>
 
 
-                </div>
-            </div>
-            <!-- /. ROW  -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="alert alert-info">
-                        n
-                        <br/>
-                        n <a href="http://www.binarytheme.com/" target="_blank">BinaryTheme.com</a>
-                    </div>
                 </div>
             </div>
 
