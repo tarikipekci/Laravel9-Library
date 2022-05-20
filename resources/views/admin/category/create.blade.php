@@ -3,20 +3,20 @@
 <head>
 
 
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Create List</title>
 
     <!-- BOOTSTRAP STYLES-->
-    <link href="{{asset('assets')}}/admin/css/bootstrap.css" rel="stylesheet" />
+    <link href="{{asset('assets')}}/admin/css/bootstrap.css" rel="stylesheet"/>
     <!-- FONTAWESOME STYLES-->
-    <link href="{{asset('assets')}}/admin/css/font-awesome.css" rel="stylesheet" />
+    <link href="{{asset('assets')}}/admin/css/font-awesome.css" rel="stylesheet"/>
     <!--CUSTOM BASIC STYLES-->
-    <link href="{{asset('assets')}}/admin/css/basic.css" rel="stylesheet" />
+    <link href="{{asset('assets')}}/admin/css/basic.css" rel="stylesheet"/>
     <!--CUSTOM MAIN STYLES-->
-    <link href="{{asset('assets')}}/admin/css/custom.css" rel="stylesheet" />
+    <link href="{{asset('assets')}}/admin/css/custom.css" rel="stylesheet"/>
     <!-- GOOGLE FONTS-->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
 </head>
 <body>
 <div id="wrapper">
@@ -33,9 +33,12 @@
 
         <div class="header-right">
 
-            <a href="{{asset('assets')}}/admin/message-task.html" class="btn btn-info" title="New Message"><b>30 </b><i class="fa fa-envelope-o fa-2x"></i></a>
-            <a href="{{asset('assets')}}/admin/message-task.html" class="btn btn-primary" title="New Task"><b>40 </b><i class="fa fa-bars fa-2x"></i></a>
-            <a href="{{asset('assets')}}/admin/login.html" class="btn btn-danger" title="Logout"><i class="fa fa-exclamation-circle fa-2x"></i></a>
+            <a href="{{asset('assets')}}/admin/message-task.html" class="btn btn-info" title="New Message"><b>30 </b><i
+                    class="fa fa-envelope-o fa-2x"></i></a>
+            <a href="{{asset('assets')}}/admin/message-task.html" class="btn btn-primary" title="New Task"><b>40 </b><i
+                    class="fa fa-bars fa-2x"></i></a>
+            <a href="{{asset('assets')}}/admin/login.html" class="btn btn-danger" title="Logout"><i
+                    class="fa fa-exclamation-circle fa-2x"></i></a>
 
 
         </div>
@@ -46,11 +49,11 @@
             <ul class="nav" id="main-menu">
                 <li>
                     <div class="user-img-div">
-                        <img src="{{asset('assets')}}/admin/img/user.png" class="img-thumbnail" />
+                        <img src="{{asset('assets')}}/admin/img/user.png" class="img-thumbnail"/>
 
                         <div class="inner-text">
                             Jhon Deo Alex
-                            <br />
+                            <br/>
                             <small>Last Login : 2 Weeks Ago </small>
                         </div>
                     </div>
@@ -69,16 +72,24 @@
                     <a href="#"><i class="fa fa-shopping-cart"></i>Order <span class="fa fa-shopping-bag"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="{{asset('assets')}}/admin/panel-tabs.html"><i class="fa fa-th" style="color: yellowgreen"></i>New Orders</a>
+                            <a href="{{asset('assets')}}/admin/panel-tabs.html"><i class="fa fa-th"
+                                                                                   style="color: yellowgreen"></i>New
+                                Orders</a>
                         </li>
                         <li>
-                            <a href="{{asset('assets')}}/admin/notification.html"><i class="fa fa-th " style="color: black"></i>Accepted Orders</a>
+                            <a href="{{asset('assets')}}/admin/notification.html"><i class="fa fa-th "
+                                                                                     style="color: black"></i>Accepted
+                                Orders</a>
                         </li>
                         <li>
-                            <a href="{{asset('assets')}}/admin/progress.html"><i class="fa fa-th " style="color: purple"></i>Shipping Orders</a>
+                            <a href="{{asset('assets')}}/admin/progress.html"><i class="fa fa-th "
+                                                                                 style="color: purple"></i>Shipping
+                                Orders</a>
                         </li>
                         <li>
-                            <a href="{{asset('assets')}}/admin/buttons.html"><i class="fa fa-th" style="color:deeppink;"></i>Completed Orders</a>
+                            <a href="{{asset('assets')}}/admin/buttons.html"><i class="fa fa-th"
+                                                                                style="color:deeppink;"></i>Completed
+                                Orders</a>
                         </li>
 
                     </ul>
@@ -97,7 +108,7 @@
                     <a href="/admin/faq"><i class="fa fa-question " style="color: orangered"></i>FAQ</a>
                 </li>
                 <li>
-                    <a href="/admin/messages"><i class="fa fa-send " style="color: #b3d4fc"></i>Messages</a>
+                    <a href="{{route('admin.message.index')}}"><i class="fa fa-send " style="color: #b3d4fc"></i>Messages</a>
                 </li>
 
                 <li>
@@ -108,11 +119,11 @@
                     <a href="/admin/social"><i class="fa fa-archive " style="color: #ffe8a1"></i>Social</a>
                 </li>
                 <li>
-                    <a href="/admin/social"><i ></i></a>
+                    <a href="/admin/social"><i></i></a>
                 </li>
 
                 <li>
-                    <a href="/admin/social"><i ></i></a>
+                    <a href="/admin/social"><i></i></a>
                 </li>
                 <li>
                     <a href="/admin/setting"><i class="fa fa-space-shuttle"></i>Settings</a>
@@ -136,24 +147,26 @@
                                 Category Elements
                             </div>
                             <div class="panel-body">
-                                <form role="form" action="{{route('admin.category.store')}}" method="post" enctype="multipart/form-data">
+                                <form role="form" action="{{route('admin.category.store')}}" method="post"
+                                      enctype="multipart/form-data">
                                     @csrf
 
-                                   <div class="card-body">
+                                    <div class="card-body">
 
-                                       <div class="form-group">
-                                           <label>Parent Category</label>
+                                        <div class="form-group">
+                                            <label>Parent Category</label>
 
-                                           <select class="form-control select2" name="parent_id" style="...">
+                                            <select class="form-control select2" name="parent_id" style="...">
 
                                                 @foreach($data as $rs)
-                                                    <option value="{{$rs->id}}">{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title)}}</option>
-                                               @endforeach
-                                           </select>
-                                       </div>
+                                                    <option
+                                                        value="{{$rs->id}}">{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title)}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
 
 
-                                   </div>
+                                    </div>
 
 
                                     <div class="form-group">
@@ -169,18 +182,19 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Description</label>
-                                        <input class="form-control" type="text" name="description" placeholder="Description">
+                                        <input class="form-control" type="text" name="description"
+                                               placeholder="Description">
                                         <p class="help-block"></p>
                                     </div>
                                     <div class="form-group">
-                                    <label for="exampleInputFile">Image</label>
-                                    <div class = "custom-file">
-                                        <input type = "file" class="custom-file-input" name="image">
-                                        <label class="custom-file-label" for="exampleInputFile"></label>
-                                    </div>
-                                        <div class ="form-group">
+                                        <label for="exampleInputFile">Image</label>
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" name="image">
+                                            <label class="custom-file-label" for="exampleInputFile"></label>
+                                        </div>
+                                        <div class="form-group">
                                             <label>Status</label>
-                                            <select class ="form-control" name="status">
+                                            <select class="form-control" name="status">
                                                 <option selected>0</option>
                                                 <option>1</option>
                                                 <option>0</option>
@@ -197,7 +211,6 @@
                     </div>
 
 
-
                 </div>
             </div>
             <!-- /. ROW  -->
@@ -205,7 +218,7 @@
                 <div class="col-md-12">
                     <div class="alert alert-info">
                         n
-                        <br />
+                        <br/>
                         n <a href="http://www.binarytheme.com/" target="_blank">BinaryTheme.com</a>
                     </div>
                 </div>

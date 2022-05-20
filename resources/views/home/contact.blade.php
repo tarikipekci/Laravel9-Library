@@ -1,7 +1,7 @@
 @extends('layouts.home')
 
 @section('title','Bookraria || Find Your Dream Book')
-<link rel="icon" type="image/x-icon" href={{Storage::url($setting->icon)}}>
+<link rel="icon" type="image/x-icon" href={{Storage::url($setting->icon)}} xmlns="http://www.w3.org/1999/html">
 
 @section('content')
     <div id="wrapper">
@@ -51,14 +51,6 @@
 
     </div>
 
-    <div class="section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12"
-                {!! $setting->contact !!}
-            </div>
-        </div>
-
     </div>
 
     </div>
@@ -68,7 +60,7 @@
         <nav id="menu">
             <h2>Menu</h2>
             <ul>
-                <li><a href="index.html" >Home</a></li>
+                <li><a href="index.html">Home</a></li>
 
                 <li><a href="products.html">Products</a></li>
 
@@ -79,7 +71,7 @@
 
                     <ul>
                         <li><a href="about.html">About Us</a></li>
-                        <li><a href="blog.html" >Blog</a></li>
+                        <li><a href="blog.html">Blog</a></li>
                         <li><a href="testimonials.html">Testimonials</a></li>
                         <li><a href="terms.html">Terms</a></li>
                     </ul>
@@ -92,106 +84,86 @@
         <!-- Main -->
         <div id="main">
             <div class="inner">
-                <h1>Checkout</h1>
+                <h1>Contact Us</h1>
             </div>
+
         </div>
 
-        <!-- Footer -->
-        <footer id="footer">
-            <div class="inner">
-                <section>
-                    <form method="post" action="#">
-                        <div class="fields">
-                            <div class="field half">
-                                <select>
-                                    <option value="">-- Choose Title--</option>
-                                    <option value="dr">Dr.</option>
-                                    <option value="miss">Miss</option>
-                                    <option value="mr">Mr.</option>
-                                    <option value="mrs">Mrs.</option>
-                                    <option value="ms">Ms.</option>
-                                    <option value="other">Other</option>
-                                    <option value="prof">Prof.</option>
-                                    <option value="rev">Rev.</option>
-                                </select>
-                            </div>
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12"
+                    {!! $setting->contact !!}
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+    </div>
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <section>
+                <form method="post" action="{{route('storemessage')}}">
+                    <h1>Contact Form</h1>
+                    @include('home.message')
+                   @csrf
+                    <div class="fields">
+                        <div class="field half">
+                            <select>
+                                <option value="">-- Choose Title--</option>
+                                <option value="dr">Dr.</option>
+                                <option value="miss">Miss</option>
+                                <option value="mr">Mr.</option>
+                                <option value="mrs">Mrs.</option>
+                                <option value="ms">Ms.</option>
+                                <option value="other">Other</option>
+                                <option value="prof">Prof.</option>
+                                <option value="rev">Rev.</option>
+                            </select>
+                        </div>
 
-                            <div class="field half">
-                                <input type="text" name="field-2" id="field-2" placeholder="Name">
-                            </div>
+                        <div class="field half">
+                            <input type="text" name="name" id="field-2" placeholder="Name && Surname">
+                        </div>
 
-                            <div class="field half">
-                                <input type="text" name="field-3" id="field-3" placeholder="Email">
-                            </div>
+                        <div class="field half">
+                            <input type="text" name="email" id="field-3" placeholder="Email">
+                        </div>
 
-                            <div class="field half">
-                                <input type="text" name="field-4" id="field-4" placeholder="Phone">
-                            </div>
+                        <div class="field half">
+                            <input type="text" name="phone" id="field-4" placeholder="Phone Number">
+                        </div>
 
-                            <div class="field half">
-                                <input type="text" name="field-5" id="field-5" placeholder="Address 1">
-                            </div>
+                        <div class="field half">
+                            <input type="text" name="subject" id="field-4" placeholder="Subject">
+                        </div>
 
-                            <div class="field half">
-                                <input type="text" name="field-6" id="field-6" placeholder="Address 2">
-                            </div>
+                        <div class="field half">
+                            <textarea type="text" name="message" id="field-4" placeholder="Your Message"></textarea>
+                        </div>
 
-                            <div class="field half">
-                                <input type="text" name="field-7" id="field-7" placeholder="City">
-                            </div>
+                        <div class="field">
+                            <div>
+                                <input type="checkbox" id="checkbox-4">
 
-                            <div class="field half">
-                                <input type="text" name="field-8" id="field-8" placeholder="State">
-                            </div>
-
-                            <div class="field half">
-                                <input type="text" name="field-7" id="field-7" placeholder="Zip">
-                            </div>
-
-                            <div class="field half">
-                                <select>
-                                    <option value="">-- Choose Country--</option>
-                                    <option value="">-- Choose Country --</option>
-                                    <option value="">-- Choose Country --</option>
-                                    <option value="">-- Choose Country --</option>
-                                </select>
-                            </div>
-
-                            <div class="field half">
-
-                                <select>
-                                    <option value="">-- Choose Payment Method--</option>
-                                    <option value="">-- Choose Payment Method--</option>
-                                    <option value="">-- Choose Payment Method--</option>
-                                    <option value="">-- Choose Payment Method--</option>
-                                </select>
-                            </div>
-
-                            <div class="field half">
-                                <input type="text" name="field-9" id="field-9" placeholder="Captcha">
-                            </div>
-
-                            <div class="field">
-                                <div>
-                                    <input type="checkbox" id="checkbox-4">
-
-                                    <label for="checkbox-4">
-                                        I agree with the <a href="terms.html" target="_blank">Terms &amp; Conditions</a>
-                                    </label>
-                                </div>
-                            </div>
-
-
-                            <div class="field half text-right">
-                                <ul class="actions">
-                                    <li><input type="submit" value="Finish" class="primary"></li>
-                                </ul>
+                                <label for="checkbox-4">
+                                    I agree with the <a href="terms.html" target="_blank">Terms &amp; Conditions</a>
+                                </label>
                             </div>
                         </div>
-                    </form>
-                </section>
-                <section>
-    </div>
+
+
+                        <div class="field half text-right">
+                            <ul class="actions">
+                                <li><input type="submit" value="Send Message" class="primary"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </form>
+            </section>
+            <section>
+        </div>
 @endsection
 
 
