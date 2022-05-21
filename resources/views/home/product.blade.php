@@ -87,15 +87,31 @@
                                         <option value="2">Extra 3</option>
                                     </select>
                                 </div>
+
+                                @php
+                                    $average = $data->comment->average('rate');
+                                @endphp
+
+                                <div class="product-rating">
+                                    {{$average}}/5
+                                    <i class="fa fa-star @if ($average<1) -o empty @endif"></i>
+                                    <i class="fa fa-star @if ($average<2) -o empty @endif"></i>
+                                    <i class="fa fa-star @if ($average<3) -o empty @endif"></i>
+                                    <i class="fa fa-star @if ($average<4) -o empty @endif"></i>
+                                    <i class="fa fa-star @if ($average<5) -o empty @endif"></i>
+                                </div>
+
+                                <a href="#">{{$data->comment->count('id')}} Review(s) / Add Review</a>
+                                Availability: @if($data->status == 'True')<a href="#" style="color: #4cae4c">In Stock</a>@endif
                             </div>
 
                             <div class="col-sm-8">
-                                <label class="control-label">Quantity</label>
+                                <label class="control-label">Amount</label>
 
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <input type="text" name="name" id="name">
+                                            <input type="number" name="amount" id="amount">
                                         </div>
                                     </div>
 
@@ -269,38 +285,4 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
