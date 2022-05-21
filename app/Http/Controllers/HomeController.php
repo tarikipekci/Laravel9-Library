@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Faq;
 use App\Models\Message;
 use App\Models\Product;
 use App\Models\Setting;
 use Hamcrest\Core\Set;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -89,6 +91,22 @@ class HomeController extends Controller
 
     }
 
+    public function storecomment(Request $request)
+    {
+        // dd($request);
+        $data = new Comment();
+        $data->user_id = Auth::id();
+        $data->product_id = $request->input('product_id');
+        $data->subject = $request->input('subject');
+        $data->review = $request->input('review');
+        $data->rate = $request->input('rate');
+        $data->ip=request()->ip();
+        $data->save();
+
+        return redirect()->route('product' , ['id' => $request->input('product_id')])->with('succes', 'Your comment has been sent, thank you!');
+
+
+    }
 
 
     public function product($id)
@@ -96,7 +114,8 @@ class HomeController extends Controller
 
         $data = Product::find($id);
         $images = DB::table('images')->where('book_id', $id)->get();
-        return view('home.product', ['data' => $data, 'images' => $images]);
+        $reviews = Comment::where('product_id', $id)->where('status', 'True')->get();
+        return view('home.product', ['data' => $data, 'images' => $images, 'reviews' => $reviews]);
 
     }
 

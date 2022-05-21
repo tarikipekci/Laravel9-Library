@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
     <link rel="stylesheet" href="{{asset('assets')}}/bootstrap/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="{{asset('assets')}}/css/main.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <noscript>
         <link rel="stylesheet" href="{{asset('assets')}}/css/noscript.css"/>
     </noscript>
@@ -65,6 +66,7 @@
             </h1>
 
             <div class="container-fluid">
+                @include('home.message')
                 <div class="row">
                     <div class="col-md-5">
                         <img src="{{\Illuminate\Support\Facades\Storage::url($data->image)}}" class="img-fluid" alt="">
@@ -161,7 +163,78 @@
                     </article>
                 </section>
             </div>
+
+            <div class="col-md-6">
+                <h1 class="text-uppercase">Write your Review</h1>
+                <p><b>Your email address will be not published!</b></p>
+
+                <form class="review-form" action="{{route('storecomment')}}" method="post">
+                    @csrf
+                    <div class="form-group">
+                        <input class="input" type="hidden" name="product_id" value="{{$data->id}}">
+                    </div>
+
+                    <div class="form-group">
+                        <input class="input" type="text" name="subject" placeholder="Subject">
+                    </div>
+
+                    <div class="form-group">
+                        <textarea class="input" name="review" placeholder="Your review"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-rating">
+                            <strong class="text-uppercase">Your Rating:</strong>
+                            <div class="stars">
+                                5 <input type="radio" id="star5" name="rate" value="5"/><label for="star5"></label>
+                                4 <input type="radio" id="star4" name="rate" value="4"/><label for="star4"></label>
+                                3 <input type="radio" id="star3" name="rate" value="3"/><label for="star3"></label>
+                                2 <input type="radio" id="star2" name="rate" value="2"/><label for="star2"></label>
+                                1 <input type="radio" id="star1" name="rate" value="1"/><label for="star1"></label>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <br>
+                    @auth
+                        <button class="primary-btn">Submit</button>
+                    @else
+                        <a href="/login" class="primary-btn">For Submit Your Review, Please Login</a>
+                    @endauth
+                </form>
+
+            </div>
+            <div id="tab2">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="product-reviews">
+                            @foreach($reviews as $rs)
+                                <div class="single-review">
+                                    <div class="review-heading">
+                                        <div><a href="#"><i class="fa fa-user-o"></i>{{$rs->user->name}}</a></div>
+                                        <div><a href="#"><i class="fa fa-clock-o"></i>{{$rs->created_at}}</a></div>
+                                        <div class="review-rating pull-right">
+                                            <i>Rate:{{$rs->rate}}/5</i>
+                                        </div>
+                                    </div>
+                                    <div class="review-body">
+                                        <strong>{{$rs->subject}}</strong>
+                                        <p>{{$rs->review}}</p>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
+
+
     </div>
 
     <!-- Footer -->

@@ -32,6 +32,8 @@ Route::post('/storemessage', [HomeController::class, 'storemessage'])->name('sto
 
 Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
 
+Route::post('/faq', [HomeController::class, 'storecomment'])->name('storecomment');
+
 
 Route::get('/test', [HomeController::class, 'test'])->name('test');
 
@@ -107,6 +109,16 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::post('/update/{id}', 'update')->name('update');
         Route::get('/destroy/{id}', 'destroy')->name('destroy');
     });
+
+
+    //Admin Comments Side//
+    Route::prefix('comment')->name('comment.')->controller(\App\Http\Controllers\AdminPanel\CommentController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/show/{id}', 'show')->name('show');
+        Route::post('/update/{id}', 'update')->name('update');
+        Route::get('/destroy/{id}', 'destroy')->name('destroy');
+    });
+
 
 });
 
