@@ -20,7 +20,7 @@
         <div class="inner">
 
             <!-- Logo -->
-            <a href="index.html" class="logo">
+            <a href="http://127.0.0.1:8000/" class="logo">
                 <span class="fa fa-book"></span> <span class="title">Online Book Borrow Website!</span>
             </a>
 

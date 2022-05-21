@@ -3,7 +3,7 @@
 <!-- Footer -->
     <!-- Footer -->
     <footer id="footer">
-        <div class="inner">
+          <div class="inner">
             <section>
                 <ul class="icons">
                     <li><a href="https://twitter.com/kuntohaise" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>

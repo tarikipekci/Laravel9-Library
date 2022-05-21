@@ -125,7 +125,9 @@
                                 <i class="fa fa-star @if ($average<4) -o empty @endif"></i>
                                 <i class="fa fa-star @if ($average<5) -o empty @endif"></i>
                                 &nbsp; &nbsp;
-                                @if($rs->status == 'True')<a href="#" style="color: #720e9e">{{$rs->comment->count('id')}} / Review(s)</a>@endif
+                                @if($rs->status == 'True')
+                                    <a href="#" style="color: #720e9e">{{$rs->comment->count('id')}} / Review(s)</a>
+                                @endif
                             </div>
 
                         </article>
