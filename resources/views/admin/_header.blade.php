@@ -7,7 +7,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">COMPANY NAME</a>
+            <a class="navbar-brand" href="{{route('admin.index')}}">COMPANY NAME</a>
         </div>
         <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
         <div class="header-right">

@@ -40,6 +40,10 @@ Route::view('/registeruser', 'home.register');
 
 Route::get('/logoutuser', [HomeController::class,'logout'])->name('logoutuser');
 
+Route::view('/loginadmin', 'admin.login');
+
+Route::post('/loginadmincheck', [HomeController::class,'loginadmincheck'])->name('loginadmincheck');
+
 Route::get('/test', [HomeController::class, 'test'])->name('test');
 
 Route::get('/param/{id}/{number}', [HomeController::class, 'param'])->name('param');

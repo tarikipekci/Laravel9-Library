@@ -7,8 +7,10 @@
                     <img src="{{asset('assets')}}/admin/img/user.png" class="img-thumbnail" />
 
                     <div class="inner-text">
-                        Jhon Deo Alex
+                        {{Auth::user()->name}}
                         <br />
+                        <a href="/logoutuser" style="color: #720e9e" class="text-uppercase">Logout</a>
+                        <br>
                         <small>Last Login : 2 Weeks Ago </small>
                     </div>
                 </div>
