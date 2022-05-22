@@ -4,6 +4,7 @@
 
 @section('content')
     <div id="wrapper">
+
         @php
 
             $mainCategories = \App\Http\Controllers\HomeController::mainCategorylist()
@@ -16,7 +17,6 @@
 
                 <li><a href="{{route('home')}}" class="active">Home</a></li>
 
-               <li class="active">User Registration</li>
                 <li><a href="products.html">Products</a></li>
 
                 @foreach($mainCategories as $rs)
@@ -43,9 +43,10 @@
                     </ul>
 
                 </li>
-
+                <li><a href="{{route('faq')}}">FAQ</a></li>
                 <li><a href="{{route('contact')}}">Contact Us</a></li>
             </ul>
+
 
         </nav>
 

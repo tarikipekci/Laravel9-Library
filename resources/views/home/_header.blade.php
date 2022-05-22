@@ -28,8 +28,8 @@
     <header id="header">
         <div class="inner">
             <!-- Logo -->
-            <a href="#" class="logo">
-                <span class="fa fa-book"></span> <span class="title">Online Book Borrow Website!</span>
+            <a href="/#" class="logo">
+                <span href="#" class="fa fa-book"></span> <span class="title">Online Book Borrow Website!</span>
             </a>
 
             <!-- Nav -->

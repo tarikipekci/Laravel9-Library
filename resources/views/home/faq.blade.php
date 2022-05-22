@@ -15,6 +15,7 @@
     </script>
     @section('content')
         <div id="wrapper">
+
             @php
 
                 $mainCategories = \App\Http\Controllers\HomeController::mainCategorylist()
@@ -31,8 +32,7 @@
 
                     @foreach($mainCategories as $rs)
                         @if(count($rs->children))
-                            <li class="menu-item-has-children"><a
-                                    href="/categoryproducts/{{$rs->id}}/{{$rs->title}}"></a>
+                            <li class="menu-item-has-children"><a href="/categoryproducts/{{$rs->id}}/{{$rs->title}}"></a>
                                 <ul>
                                     @include('home.categorytree',['children'=>$rs->children])
                                 </ul>
@@ -57,6 +57,7 @@
                     <li><a href="{{route('faq')}}">FAQ</a></li>
                     <li><a href="{{route('contact')}}">Contact Us</a></li>
                 </ul>
+
 
             </nav>
 

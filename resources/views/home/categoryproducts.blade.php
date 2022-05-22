@@ -36,6 +36,7 @@
         <!-- Menu -->
 
 
+
         @php
 
             $mainCategories = \App\Http\Controllers\HomeController::mainCategorylist()
@@ -46,7 +47,7 @@
             <h2>Menu</h2>
             <ul>
 
-                <li><a href="http://127.0.0.1:8000/" class="active">Home</a></li>
+                <li><a href="{{route('home')}}" class="active">Home</a></li>
 
                 <li><a href="products.html">Products</a></li>
 
@@ -66,15 +67,16 @@
                 <li><a href="#" class="dropdown-toggle">About</a>
 
                     <ul>
-                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="{{route('about')}}">About Us</a></li>
+                        <li><a href="{{route('references')}}">References</a></li>
                         <li><a href="blog.html">Blog</a></li>
                         <li><a href="testimonials.html">Testimonials</a></li>
                         <li><a href="terms.html">Terms</a></li>
                     </ul>
 
                 </li>
-
-                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="{{route('faq')}}">FAQ</a></li>
+                <li><a href="{{route('contact')}}">Contact Us</a></li>
             </ul>
 
 

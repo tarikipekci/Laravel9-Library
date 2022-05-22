@@ -4,6 +4,7 @@
 
 @section('content')
     <div id="wrapper">
+
         @php
 
             $mainCategories = \App\Http\Controllers\HomeController::mainCategorylist()
@@ -42,9 +43,10 @@
                     </ul>
 
                 </li>
-
+                <li><a href="{{route('faq')}}">FAQ</a></li>
                 <li><a href="{{route('contact')}}">Contact Us</a></li>
             </ul>
+
 
         </nav>
 
