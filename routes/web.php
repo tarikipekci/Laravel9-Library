@@ -34,13 +34,13 @@ Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
 
 Route::post('/storecomment', [HomeController::class, 'storecomment'])->name('storecomment');
 
-Route::view('/loginuser', 'home.login');
+Route::view('/loginuser', 'home.login')->name('loginuser');
 
 Route::view('/registeruser', 'home.register');
 
 Route::get('/logoutuser', [HomeController::class,'logout'])->name('logoutuser');
 
-Route::view('/loginadmin', 'admin.login');
+Route::view('/loginadmin', 'admin.login')->name('loginadmin');
 
 Route::post('/loginadmincheck', [HomeController::class,'loginadmincheck'])->name('loginadmincheck');
 
@@ -62,7 +62,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 //Admin
 
-Route::prefix('admin')->name('admin.')->group(function () {
+Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
 
 
     Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('index');
