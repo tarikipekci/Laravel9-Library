@@ -60,7 +60,17 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 
+Route::middleware('auth')->group(function () {
+
+    Route::prefix('userpanel')->prefix('userpanel')->name('userpanel.')->controller(\App\Http\Controllers\UserController::class)->group(function () {
+        Route::get('/','index')->name('index');
+
+    });
+
+
 //Admin
+
+
 
 Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
 
@@ -138,11 +148,7 @@ Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
         Route::get('/destroyrole/{uid}/{rid}', 'destroyrole')->name('destroyrole');
     });
 
-
-
-
-
-
+});
 
 
 });
