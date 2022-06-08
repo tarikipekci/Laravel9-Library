@@ -38,11 +38,11 @@ Route::view('/loginuser', 'home.login')->name('loginuser');
 
 Route::view('/registeruser', 'home.register');
 
-Route::get('/logoutuser', [HomeController::class,'logout'])->name('logoutuser');
+Route::get('/logoutuser', [HomeController::class, 'logout'])->name('logoutuser');
 
 Route::view('/loginadmin', 'admin.login')->name('loginadmin');
 
-Route::post('/loginadmincheck', [HomeController::class,'loginadmincheck'])->name('loginadmincheck');
+Route::post('/loginadmincheck', [HomeController::class, 'loginadmincheck'])->name('loginadmincheck');
 
 Route::get('/test', [HomeController::class, 'test'])->name('test');
 
@@ -62,93 +62,95 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::middleware('auth')->group(function () {
 
+    //User Panel
+
     Route::prefix('userpanel')->prefix('userpanel')->name('userpanel.')->controller(\App\Http\Controllers\UserController::class)->group(function () {
-        Route::get('/','index')->name('index');
-
-    });
-
-
-//Admin
-
-
-
-Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
-
-
-    Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('index');
-
-    Route::get('/setting', [\App\Http\Controllers\Admin\HomeController::class, 'setting'])->name('setting');
-    Route::post('/setting', [\App\Http\Controllers\Admin\HomeController::class, 'settingUpdate'])->name('setting.update');
-
-//Admin Category Side//
-    Route::prefix('category')->name('category.')->controller(AdminCategoryController::class)->group(function () {
         Route::get('/', 'index')->name('index');
-        Route::get('/create', 'create')->name('create');
-        Route::post('/store', 'store')->name('store');
-        Route::get('/edit/{id}', 'edit')->name('edit');
-        Route::post('/update/{id}', 'update')->name('update');
-        Route::get('/show/{id}', 'show')->name('show');
-        Route::get('/destroy/{id}', 'destroy')->name('destroy');
-    });
-
-    //Admin Product Side//
-    Route::prefix('product')->name('product.')->controller(\App\Http\Controllers\AdminPanel\AdminProductController::class)->group(function () {
-        Route::get('/', 'index')->name('index');
-        Route::get('/create', 'create')->name('create');
-        Route::post('/store', 'store')->name('store');
-        Route::get('/edit/{id}', 'edit')->name('edit');
-        Route::post('/update/{id}', 'update')->name('update');
-        Route::get('/show/{id}', 'show')->name('show');
-        Route::get('/destroy/{id}', 'destroy')->name('destroy');
+        Route::get('/reviews', 'reviews')->name('reviews');
+        Route::get('/reviewdestroy/{id}', 'reviewdestroy')->name('reviewdestroy');
     });
 
 
-    //Admin Product Image Side//
-    Route::prefix('image')->name('image.')->controller(\App\Http\Controllers\AdminPanel\ImageController::class)->group(function () {
-        Route::get('/{pid}', 'index')->name('index');
-        Route::post('/store/{pid}', 'store')->name('store');
-        Route::get('/destroy/{pid}/{id}', 'destroy')->name('destroy');
+    //Admin
+
+
+    Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
+
+
+        Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('index');
+
+        Route::get('/setting', [\App\Http\Controllers\Admin\HomeController::class, 'setting'])->name('setting');
+        Route::post('/setting', [\App\Http\Controllers\Admin\HomeController::class, 'settingUpdate'])->name('setting.update');
+
+    //Admin Category Side//
+        Route::prefix('category')->name('category.')->controller(AdminCategoryController::class)->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::get('/create', 'create')->name('create');
+            Route::post('/store', 'store')->name('store');
+            Route::get('/edit/{id}', 'edit')->name('edit');
+            Route::post('/update/{id}', 'update')->name('update');
+            Route::get('/show/{id}', 'show')->name('show');
+            Route::get('/destroy/{id}', 'destroy')->name('destroy');
+        });
+
+        //Admin Product Side//
+        Route::prefix('product')->name('product.')->controller(\App\Http\Controllers\AdminPanel\AdminProductController::class)->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::get('/create', 'create')->name('create');
+            Route::post('/store', 'store')->name('store');
+            Route::get('/edit/{id}', 'edit')->name('edit');
+            Route::post('/update/{id}', 'update')->name('update');
+            Route::get('/show/{id}', 'show')->name('show');
+            Route::get('/destroy/{id}', 'destroy')->name('destroy');
+        });
+
+
+        //Admin Product Image Side//
+        Route::prefix('image')->name('image.')->controller(\App\Http\Controllers\AdminPanel\ImageController::class)->group(function () {
+            Route::get('/{pid}', 'index')->name('index');
+            Route::post('/store/{pid}', 'store')->name('store');
+            Route::get('/destroy/{pid}/{id}', 'destroy')->name('destroy');
+        });
+
+
+        //Admin Messages Side//
+        Route::prefix('message')->name('message.')->controller(MessageController::class)->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::get('/show/{id}', 'show')->name('show');
+            Route::post('/update/{id}', 'update')->name('update');
+            Route::get('/destroy/{id}', 'destroy')->name('destroy');
+        });
+
+        Route::prefix('/faq')->name('faq.')->controller(\App\Http\Controllers\AdminPanel\FaqController::class)->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::get('/create', 'create')->name('create');
+            Route::post('/store', 'store')->name('store');
+            Route::get('/edit/{id}', 'edit')->name('edit');
+            Route::get('/show/{id}', 'show')->name('show');
+            Route::post('/update/{id}', 'update')->name('update');
+            Route::get('/destroy/{id}', 'destroy')->name('destroy');
+        });
+
+
+        //Admin Comments Side//
+        Route::prefix('comment')->name('comment.')->controller(\App\Http\Controllers\AdminPanel\CommentController::class)->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::get('/show/{id}', 'show')->name('show');
+            Route::post('/update/{id}', 'update')->name('update');
+            Route::get('/destroy/{id}', 'destroy')->name('destroy');
+        });
+
+        Route::prefix('/user')->name('user.')->controller(\App\Http\Controllers\AdminPanel\AdminUserController::class)->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::get('/edit/{id}', 'show')->name('edit');
+            Route::get('/show/{id}', 'show')->name('show');
+            Route::post('/update/{id}', 'update')->name('update');
+            Route::get('/destroy/{id}', 'destroy')->name('destroy');
+            Route::post('/addrole/{id}', 'addrole')->name('addrole');
+            Route::get('/destroyrole/{uid}/{rid}', 'destroyrole')->name('destroyrole');
+        });
+
     });
-
-
-    //Admin Messages Side//
-    Route::prefix('message')->name('message.')->controller(MessageController::class)->group(function () {
-        Route::get('/', 'index')->name('index');
-        Route::get('/show/{id}', 'show')->name('show');
-        Route::post('/update/{id}', 'update')->name('update');
-        Route::get('/destroy/{id}', 'destroy')->name('destroy');
-    });
-
-    Route::prefix('/faq')->name('faq.')->controller(\App\Http\Controllers\AdminPanel\FaqController::class)->group(function () {
-        Route::get('/', 'index')->name('index');
-        Route::get('/create', 'create')->name('create');
-        Route::post('/store', 'store')->name('store');
-        Route::get('/edit/{id}', 'edit')->name('edit');
-        Route::get('/show/{id}', 'show')->name('show');
-        Route::post('/update/{id}', 'update')->name('update');
-        Route::get('/destroy/{id}', 'destroy')->name('destroy');
-    });
-
-
-    //Admin Comments Side//
-    Route::prefix('comment')->name('comment.')->controller(\App\Http\Controllers\AdminPanel\CommentController::class)->group(function () {
-        Route::get('/', 'index')->name('index');
-        Route::get('/show/{id}', 'show')->name('show');
-        Route::post('/update/{id}', 'update')->name('update');
-        Route::get('/destroy/{id}', 'destroy')->name('destroy');
-    });
-
-    Route::prefix('/user')->name('user.')->controller(\App\Http\Controllers\AdminPanel\AdminUserController::class)->group(function () {
-        Route::get('/', 'index')->name('index');
-        Route::get('/edit/{id}', 'show')->name('edit');
-        Route::get('/show/{id}', 'show')->name('show');
-        Route::post('/update/{id}', 'update')->name('update');
-        Route::get('/destroy/{id}', 'destroy')->name('destroy');
-        Route::post('/addrole/{id}', 'addrole')->name('addrole');
-        Route::get('/destroyrole/{uid}/{rid}', 'destroyrole')->name('destroyrole');
-    });
-
-});
 
 
 });
