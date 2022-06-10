@@ -19,7 +19,50 @@
                 <li>Copyright © 2022 BOOKRARIA </li>
                 <li>Template by: <a href="https://www.phpjabbers.com/">PHPJabbers.com</a></li>
             </ul>
+              <li class="header-cart dropdown default-dropdown">
+                  <a href="{{route('shopcart.index')}}" class="dropdown-toggle" data-toggle="dropdown"
+                     aria-expanded="true">
+                      <div class="header-btns-icon">
+                          <i class="fa fa-shopping-cart"></i>
+                          <span class="qty">{{\App\Http\Controllers\ShopCartController::countshopcart()}}</span>
+                      </div>
+
+                      <strong class="text-uppercase">My Cart</strong>
+                      <br>
+                      <span>35.20$</span>
+                  </a>
+                  <div class="custom-menu">
+                      <div id="shopping-cart">
+                          <div class="shopping-cart-list">
+                              <div class="product product-widget">
+                                  <div class="product-thumb">
+                                      <img src="{{asset('assets')}}/img/deneme.jpg" alt="">
+
+                                  </div>
+                                  <div class="product-body">
+                                      <h3 class="product-price">32.50$ <span class="qty">x3</span></h3>
+                                      <h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
+                                  </div>
+                                  <button class="cancel-btn"><i class="fa fa-trash"></i></button>
+                              </div>
+
+                          </div>
+
+                          <div class="fa-shopping-cart-btns">
+                              <a href="{{route('shopcart.index')}}" class="main-btn">View Cart</a>
+                              <button class="primary-btn">Checkout<i class="fa fa-arrow-circle-right"></i>
+                              </button>
+
+                          </div>
+                      </div>
+
+
+                  </div>
+
+
+              </li>
         </div>
+
     </footer>
 
 </div>

@@ -100,34 +100,32 @@
 
                         <div class="row">
                             <div class="col-sm-4">
-                                <label class="control-label">Extra 1</label>
+                                <form action="{{route("shopcart.store")}}" method="post">
+                                    @csrf
+                                    <label class="control-label">Extra 1</label>
 
-                                <div class="form-group">
-                                    <select>
-                                        <option value="0">Extra 1</option>
-                                        <option value="1">Extra 2</option>
-                                        <option value="2">Extra 3</option>
-                                    </select>
-                                </div>
+                                    <div class="form-group">
 
-                                @php
-                                    $average = $data->comment->average('rate');
-                                @endphp
+                                    </div>
 
-                                <div class="product-rating">
-                                    {{$average}}/5
-                                    <i class="fa fa-star @if ($average<1) -o empty @endif"></i>
-                                    <i class="fa fa-star @if ($average<2) -o empty @endif"></i>
-                                    <i class="fa fa-star @if ($average<3) -o empty @endif"></i>
-                                    <i class="fa fa-star @if ($average<4) -o empty @endif"></i>
-                                    <i class="fa fa-star @if ($average<5) -o empty @endif"></i>
-                                </div>
+                                    @php
+                                        $average = $data->comment->average('rate');
+                                    @endphp
 
-                                <a href="#">{{$data->comment->count('id')}} Review(s) / Add Review</a>
-                                Availability: @if($data->status == 'True')
-                                    <a href="#" style="color: #4cae4c">In Stock</a>
-                                @else
-                                    <a style="color: red">Not In Stock</a>
+                                    <div class="product-rating">
+                                        {{$average}}/5
+                                        <i class="fa fa-star @if ($average<1) -o empty @endif"></i>
+                                        <i class="fa fa-star @if ($average<2) -o empty @endif"></i>
+                                        <i class="fa fa-star @if ($average<3) -o empty @endif"></i>
+                                        <i class="fa fa-star @if ($average<4) -o empty @endif"></i>
+                                        <i class="fa fa-star @if ($average<5) -o empty @endif"></i>
+                                    </div>
+
+                                    <a href="#">{{$data->comment->count('id')}} Review(s) / Add Review</a>
+                                    Availability: @if($data->status == 'True')
+                                        <a href="#" style="color: #4cae4c">In Stock</a>
+                                    @else
+                                        <a style="color: red">Not In Stock</a>
                                 @endif
                             </div>
 
@@ -137,16 +135,19 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <input type="number" name="amount" id="amount">
+                                            <input type="number" name="quantity" id="quantity" min="1" max="{{$data->quantity}}" onchange="this.form">
+                                            <input class="input" name="id" value="{{$data->id}}" type="hidden">
                                         </div>
                                     </div>
 
                                     <div class="col-sm-6">
-                                        <input type="submit" class="primary" value="Add to Cart">
+                                        <input type="submit" class="primary" value="Borrow!">
                                     </div>
                                 </div>
                             </div>
+                            </form>
                         </div>
+
                     </div>
                 </div>
             </div>

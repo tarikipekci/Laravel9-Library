@@ -63,16 +63,6 @@
                         <a href="/admin/user"><i class="fa fa-user" style="color: #8499e7"></i>Users</a>
                     </li>
 
-                    <li>
-                        <a href="/admin/social"><i class="fa fa-archive " style="color: #ffe8a1"></i>Social</a>
-                    </li>
-            <li>
-                <a href="/admin/social"><i ></i></a>
-            </li>
-
-            <li>
-                <a href="/admin/social"><i ></i></a>
-            </li>
             <li>
                 <a href="/admin/setting"><i class="fa fa-space-shuttle"></i>Settings</a>
             </li>
