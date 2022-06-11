@@ -1,11 +1,12 @@
 <!-- Wrapper -->
+
 <div id="wrapper">
 
     <div class="pull-left">
         <ul class="header-btns">
             <li class="header-account dropdown default-dropdown">
                 @auth
-                    <div  role="button" data-toggle="dropdown" aria-expanded="true">
+                    <div role="button" data-toggle="dropdown" aria-expanded="true">
                         <div class="header-btns-icon">
                             <i class="fa fa-user-o"></i>
 
@@ -19,6 +20,16 @@
                     <a href="/loginuser" class="text-uppercase">Login</a> / <a href="registeruser"
                                                                                class="text-uppercase">Join</a>
                 @endguest
+                <ul class="custom-menu">
+                    <li><a href="{{route('userpanel.index')}}"><i class="fa fa-user-o"></i>My Account</a></li>
+                    <li><a href="#"><i class="fa fa-heart-o"></i>My Wishlist</a></li>
+                    <li><a href="#"><i class="fa fa-exchange"></i>Compare</a></li>
+                    <li><a href="#"><i class="fa fa-check"></i>Checkout</a></li>
+                    <li><a href="/loginuser"><i class="fa fa-unlock-alt"></i>Login</a></li>
+                    <li><a href="registeruser"><i class="fa fa-user-plus"></i>Create An Account</a></li>
+                </ul>
+
+
             </li>
 
         </ul>
@@ -32,11 +43,37 @@
                 <span href="#" class="fa fa-book"></span> <span class="title">Online Book Borrow Website!</span>
             </a>
 
+
             <!-- Nav -->
             <nav>
+
                 <ul>
+
+
                     <li><a href="#menu">Menu</a></li>
                 </ul>
+
+                <li>
+                    <a href="{{route('shopcart.index')}}">
+                        <div>
+                            <i class="fa fa-shopping-cart"></i>
+                            <span class="qty">{{\App\Http\Controllers\ShopCartController::countshopcart()}}</span>
+                        </div>
+                        <strong class="text-uppercase">My Cart</strong>
+                        <br>
+                    </a>
+                    <div class="custom-menu">
+                        <div id="shopping-cart">
+                            <div>
+                                <a href="{{route('shopcart.index')}}" class="main-btn">View Cart</a>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                </li>
             </nav>
 
         </div>

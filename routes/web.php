@@ -4,7 +4,7 @@ use App\Http\Controllers\AdminPanel\MessageController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminPanel\CategoryController as AdminCategoryController;
-
+use \App\Http\Controllers\ShopCartController;
 
 Route::get('/home2', function () {
     return view('welcome');
@@ -52,6 +52,8 @@ Route::post('/save', [HomeController::class, 'save'])->name('save');
 
 Route::get('/product/{id}', [HomeController::class, 'product'])->name('product');
 
+Route::get('/order/{id}', [HomeController::class, 'order'])->name('order');
+
 Route::get('/categoryproducts/{id}/{slug}', [HomeController::class, 'categoryproducts'])->name('categoryproducts');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
@@ -68,8 +70,27 @@ Route::middleware('auth')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/reviews', 'reviews')->name('reviews');
         Route::get('/reviewdestroy/{id}', 'reviewdestroy')->name('reviewdestroy');
+        Route::get('/orders', 'orders')->name('orders');
+        Route::get('/orderdetail/{id}', 'orderdetail')->name('orderdetail');
     });
 
+
+    //Borrow Side
+
+    Route::prefix('/shopcart')->name('shopcart.')->controller(ShopCartController::class)->group(function () {
+
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/store', 'store')->name('store');
+        Route::get('/edit/{id}', 'edit')->name('edit');
+        Route::post('/update/{id}', 'update')->name('update');
+        Route::get('/show/{id}', 'show')->name('show');
+        Route::get('/destroy/{id}', 'destroy')->name('destroy');
+        Route::get('/add/{id}','add')->name('add');
+        Route::post('/storeorder','storeorder')->name('storeorder');
+        Route::post('/order', 'order')->name('order');
+        Route::get('/ordercomplete', 'ordercomplete')->name('ordercomplete');
+    });
 
     //Admin
 

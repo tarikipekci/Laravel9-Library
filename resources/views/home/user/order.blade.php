@@ -90,9 +90,9 @@
                     <div class="inner">
                         <section>
                             @include('home.message')
-                            <form method="post" action="{{route('borrow.storeorder')}}" class="clearfix">
-                                <h1>Shipping Information</h1>
+                            <form method="post" action="{{route('shopcart.storeorder')}}" class="clearfix">
                                 @csrf
+                                <h1>Shipping Information</h1>
                                 <div class="fields">
                                     <div class="field half">
                                         <select>
@@ -109,70 +109,86 @@
                                     </div>
 
                                     <div class="field half">
-                                        <input type="text" name="name" id="field-2" value="{{Auth::user()->name}}" placeholder="Name && Surname">
+                                        <input type="text" name="name" id="field-2" value="{{Auth::user()->name}}"
+                                               required
+                                               placeholder="Name && Surname">
                                     </div>
 
                                     <div class="field half">
-                                        <input type="text" name="phone" id="field-4" placeholder="Phone Number">
+                                        <input type="text" name="phone" id="field-4" placeholder="Phone Number"
+                                               required>
                                     </div>
 
                                     <div class="field half">
-                                        <input type="text" name="email" id="field-3" placeholder="Email">
+                                        <input type="text" name="email" id="field-3" placeholder="Email" required>
                                     </div>
 
                                     <div class="field half">
-                                        <input type="text" name="address" class="input" placeholder="Address">
+                                        <input type="text" name="address" class="input" placeholder="Address" required>
                                     </div>
 
-                                    <div class="field">
-                                        <div>
-                                            <input type="checkbox" id="checkbox-4">
+                                    <div class="field half">
+                                        Number of Days: <input type="hidden" value="1" name="days" min="2" max="365"
+                                                               >
+                                    </div>
 
-                                            <label for="checkbox-4">
-                                                I agree with the <a href="terms.html" target="_blank">Terms &amp;
-                                                    Conditions</a>
-                                            </label>
-                                        </div>
+                                    <div class="field half">
+                                        Return Date: <input type="date" min="<?php echo date('Y-m-d'); ?>"
+                                                            name="returndate" required/>
+                                    </div>
+
+                                    <div class="field half">
+                                        <input type="hidden" value="<?php echo date('Y-m-d'); ?>" name="bookdate">
                                     </div>
 
 
-                                    <div class="field half text-right">
-                                        <ul class="actions">
-                                            <li><input type="submit" value="Send Message" class="primary"></li>
-                                        </ul>
-                                    </div>
                                 </div>
 
                                 <div class="col-md-8">
                                     <div class="ordering-methods">
                                         <div class="section-title">
-                                            {{$days}}
-                                            <h4 class="title">Payment Information</h4>
+
+                                            <h3 class="title">Payment Information [${{$total}}]</h3>
                                         </div>
                                         <div class="input-checkbox">
+
                                             <div class="field half">
-                                                <input type="tel" name="holder" id="field-2" placeholder="Card Holder">
+                                                <input type="hidden" name="total" id="field-2" value="{{$total}}">
                                             </div>
 
                                             <div class="field half">
-                                                <input class="input" type="email" name="number"
-                                                       placeholder="Card Number">
+                                                <input type="tel" name="holder" id="field-2" placeholder="Card Holder"
+                                                       required>
                                             </div>
 
                                             <div class="field half">
-                                                <input type="text" name="date" class="input" placeholder="Exp. Date">
+                                                <input class="input" type="tel" name="number"
+                                                       placeholder="Card Number" required>
+                                            </div>
+
+
+                                            <div class="field half">
+                                                <input type="text" name="date" class="input" placeholder="Exp. Date"
+                                                       required>
                                             </div>
 
                                             <div class="field half">
                                                 <input type="text" name="code" class="input"
-                                                       placeholder="Security Code">
+                                                       placeholder="Security Code" required>
                                             </div>
-
 
                                         </div>
                                     </div>
+                                    <br>
                                 </div>
+                                <div class="field half text-right">
+                                    <ul class="actions">
 
+
+                                        <li><input type="submit" value="Complete Order" class="primary"></li>
+
+                                    </ul>
+                                </div>
 
                             </form>
                         </section>
