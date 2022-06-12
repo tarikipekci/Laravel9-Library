@@ -128,18 +128,22 @@
                                     </div>
 
                                     <div class="field half">
-                                        Number of Days: <input type="hidden" value="1" name="days" min="2" max="365"
+                                        Number of Days: <input type="number" value="1" name="days" min="2" max="365"
                                                                >
                                     </div>
 
                                     <div class="field half">
-                                        Return Date: <input type="date" min="<?php echo date('Y-m-d'); ?>"
-                                                            name="returndate" required/>
+                                       Return Date: <input type="date" min="<?php echo date('Y-m-d'); ?>"
+                                               name="returndate" required/>
                                     </div>
 
                                     <div class="field half">
                                         <input type="hidden" value="<?php echo date('Y-m-d'); ?>" name="bookdate">
                                     </div>
+
+
+
+
 
 
                                 </div>

@@ -74,23 +74,24 @@
                     <a href="#"><i class="fa fa-shopping-cart"></i>Order <span class="fa fa-shopping-bag"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="{{asset('assets')}}/admin/panel-tabs.html"><i class="fa fa-th"
-                                                                                   style="color: yellowgreen"></i>New
+                            <a href="{{@route('admin.order.index', ['slug' => 'New'])}}"><i class="fa fa-th"
+                                                                                            style="color: yellowgreen"></i>New
                                 Orders</a>
                         </li>
                         <li>
-                            <a href="{{asset('assets')}}/admin/notification.html"><i class="fa fa-th "
-                                                                                     style="color: black"></i>Accepted
+                            <a href="{{@route('admin.order.index', ['slug' => 'Accepted'])}}"><i class="fa fa-th " style="color: black"></i>Accepted
                                 Orders</a>
                         </li>
                         <li>
-                            <a href="{{asset('assets')}}/admin/progress.html"><i class="fa fa-th "
-                                                                                 style="color: purple"></i>Shipping
-                                Orders</a>
+                            <a href="{{@route('admin.order.index', ['slug' => 'Shipped'])}}"><i class="fa fa-th " style="color: purple"></i>Shipped Orders</a>
                         </li>
+
                         <li>
-                            <a href="{{asset('assets')}}/admin/buttons.html"><i class="fa fa-th"
-                                                                                style="color:deeppink;"></i>Completed
+                            <a href="{{@route('admin.order.index', ['slug' => 'Cancelled'])}}"><i class="fa fa-th" style="color:yellow"></i>Cancelled Orders</a>
+                        </li>
+
+                        <li>
+                            <a href="{{@route('admin.order.index', ['slug' => 'Completed'])}}"><i class="fa fa-th" style="color:deeppink"></i>Completed
                                 Orders</a>
                         </li>
 

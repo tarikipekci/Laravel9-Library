@@ -107,7 +107,6 @@
                                         <th></th>
                                         <th class="text-center">Price</th>
                                         <th class="text-center">Amount</th>
-                                        <th class="text-center">Total</th>
                                         <th class="text-right">Remove</th>
 
                                     </tr>
@@ -137,11 +136,11 @@
                                                     <input name="quantity" class="input" type="number"
                                                            value="{{$rs->quantity}}" min="1"
                                                            max="{{$rs->product->quantity}}" onchange="this.form">
+
                                                 </form>
                                             </td>
-                                            <td class="total text-center"><strong
-                                                    class="primary-color">${{$rs->product->price * $rs->quantity}}</strong>
-                                            </td>
+
+
                                             <td class="text-right">
                                                 <a href="{{route('shopcart.destroy' , ['id' => $rs->id])}}"
                                                    class="main-btn icon-btn"
@@ -162,7 +161,12 @@
                                     </tfoot>
                                 </table>
                                 <div class="pull-right">
-                                    <button class="primary-btn">Place Order</button>
+                                    <form action="{{route('shopcart.order')}}" method="post">
+                                        @csrf
+                                        <input name="total" value="{{$total}}" type="hidden">
+                                        <button type="submit" class="primary-btn">Place Order</button>
+                                    </form>
+
                                 </div>
                             </div>
                         </div>

@@ -122,4 +122,13 @@ class UserController extends Controller
         ]);
     }
 
+    public function cancelproduct($id)
+    {
+        $data = OrderProduct::find($id);
+        $data->status = 'Cancelled';
+        $data->save();
+        return redirect()->back();
+    }
+
+
 }

@@ -11,4 +11,11 @@ class Order extends Model
 
     public static mixed $bookdate;
     public static mixed $returndate;
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+
 }

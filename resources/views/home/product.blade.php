@@ -102,30 +102,27 @@
                             <div class="col-sm-4">
                                 <form action="{{route("shopcart.store")}}" method="post">
                                     @csrf
-                                    <label class="control-label">Extra 1</label>
+                                    @if($data->amount > 0)
+                                        <label class="control-label">Rating</label>
 
-                                    <div class="form-group">
+                                        @php
+                                            $average = $data->comment->average('rate');
+                                        @endphp
 
-                                    </div>
+                                        <div class="product-rating">
+                                            {{$average}}/5
+                                            <i class="fa fa-star @if ($average<1) -o empty @endif"></i>
+                                            <i class="fa fa-star @if ($average<2) -o empty @endif"></i>
+                                            <i class="fa fa-star @if ($average<3) -o empty @endif"></i>
+                                            <i class="fa fa-star @if ($average<4) -o empty @endif"></i>
+                                            <i class="fa fa-star @if ($average<5) -o empty @endif"></i>
+                                        </div>
 
-                                    @php
-                                        $average = $data->comment->average('rate');
-                                    @endphp
-
-                                    <div class="product-rating">
-                                        {{$average}}/5
-                                        <i class="fa fa-star @if ($average<1) -o empty @endif"></i>
-                                        <i class="fa fa-star @if ($average<2) -o empty @endif"></i>
-                                        <i class="fa fa-star @if ($average<3) -o empty @endif"></i>
-                                        <i class="fa fa-star @if ($average<4) -o empty @endif"></i>
-                                        <i class="fa fa-star @if ($average<5) -o empty @endif"></i>
-                                    </div>
-
-                                    <a href="#">{{$data->comment->count('id')}} Review(s) / Add Review</a>
-                                    Availability: @if($data->status == 'True')
-                                        <a href="#" style="color: #4cae4c">In Stock</a>
-                                    @else
-                                        <a style="color: red">Not In Stock</a>
+                                        <a href="#">{{$data->comment->count('id')}} Review(s) / Add Review</a>
+                                        Availability: @if($data->status == 'True')
+                                            <a href="#" style="color: #4cae4c">In Stock</a>
+                                        @else
+                                            <a style="color: red">Not In Stock</a>
                                 @endif
                             </div>
 
@@ -145,6 +142,10 @@
                                     </div>
                                 </div>
                             </div>
+                                    @else
+                                        <a style="color: red">Not In Stock</a>
+                                    @endif
+
                             </form>
                         </div>
 

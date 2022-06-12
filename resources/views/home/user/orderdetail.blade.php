@@ -201,7 +201,7 @@
                                 <tr>
                                     <th>Days</th>
 
-                                    <td></td>
+                                    <td>{{$order->days}}</td>
                                 </tr>
 
                                 <tr>
@@ -211,7 +211,13 @@
 
                                 <tr>
                                     <th>Return Date</th>
+
                                     <td>{{$order->returndate}}</td>
+                                </tr>
+
+                                <tr>
+                                    <th>Status:</th>
+                                    <td>{{$order->note}}</td>
                                 </tr>
 
                                 <tr>
@@ -227,6 +233,7 @@
                                         <th class="text-center">Price</th>
                                         <th class="text-center">Amount</th>
                                         <th class="text-center">Total</th>
+                                        <th class="text-center">Status</th>
 
                                     </tr>
                                     </thead>
@@ -240,19 +247,27 @@
                                             <td class="details">
                                                 <a href="#">{{$rs->product->title}}</a>
                                             </td>
+
                                             <td class="price text-center">
                                                 <strong>${{$rs->product->price}}</strong><br>
                                                 <del class="font-weak">
                                             </td>
+
                                             <td>{{$rs->quantity}}</td>
+
                                             <td class="total text-center"><strong
                                                     class="primary-color">${{$rs->amount}}</strong>
                                             </td>
+
+                                            <td class="price text-center">{{$rs->status}}</td>
+
                                             <td class="text-right">
-                                                <a href="#"
-                                                   class="main-btn icon-btn"
-                                                   onclick="return confirm('Canceling !! Are you sure ?')"><i
-                                                        class="fa fa-close"></i></a>
+                                                @if ($rs->status = "New")
+                                                    <a href="{{route('userpanel.cancelproduct', ['id' => $rs->id])}}"
+                                                       class="main-btn icon-btn"
+                                                       onclick="return confirm('Canceling !! Are you sure ?')"><i
+                                                            class="fa fa-close"></i></a>
+                                                @endif
                                             </td>
                                         </tr>
                                     @endforeach

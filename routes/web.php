@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminPanel\BorrowController;
 use App\Http\Controllers\AdminPanel\MessageController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -72,6 +73,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/reviewdestroy/{id}', 'reviewdestroy')->name('reviewdestroy');
         Route::get('/orders', 'orders')->name('orders');
         Route::get('/orderdetail/{id}', 'orderdetail')->name('orderdetail');
+        Route::get('/cancelproduct/{id}', 'cancelproduct')->name('cancelproduct');
     });
 
 
@@ -86,8 +88,8 @@ Route::middleware('auth')->group(function () {
         Route::post('/update/{id}', 'update')->name('update');
         Route::get('/show/{id}', 'show')->name('show');
         Route::get('/destroy/{id}', 'destroy')->name('destroy');
-        Route::get('/add/{id}','add')->name('add');
-        Route::post('/storeorder','storeorder')->name('storeorder');
+        Route::get('/add/{id}', 'add')->name('add');
+        Route::post('/storeorder', 'storeorder')->name('storeorder');
         Route::post('/order', 'order')->name('order');
         Route::get('/ordercomplete', 'ordercomplete')->name('ordercomplete');
     });
@@ -103,7 +105,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/setting', [\App\Http\Controllers\Admin\HomeController::class, 'setting'])->name('setting');
         Route::post('/setting', [\App\Http\Controllers\Admin\HomeController::class, 'settingUpdate'])->name('setting.update');
 
-    //Admin Category Side//
+        //Admin Category Side//
         Route::prefix('category')->name('category.')->controller(AdminCategoryController::class)->group(function () {
             Route::get('/', 'index')->name('index');
             Route::get('/create', 'create')->name('create');
@@ -169,6 +171,20 @@ Route::middleware('auth')->group(function () {
             Route::get('/destroy/{id}', 'destroy')->name('destroy');
             Route::post('/addrole/{id}', 'addrole')->name('addrole');
             Route::get('/destroyrole/{uid}/{rid}', 'destroyrole')->name('destroyrole');
+        });
+
+
+        Route::prefix('/order')->name('order.')->controller(BorrowController::class)->group(function () {
+            Route::get('/{slug}', 'index')->name('index');
+            Route::get('/edit/{id}', 'show')->name('edit');
+            Route::get('/show/{id}', 'show')->name('show');
+            Route::post('/update/{id}', 'update')->name('update');
+            Route::get('/destroy/{id}', 'destroy')->name('destroy');
+            Route::get('/create', 'create')->name('create');
+            Route::post('/store', 'store')->name('store');
+            Route::get('/cancelorder/{id}', 'cancelorder')->name('cancelorder');
+            Route::get('/cancelproduct/{id}', 'cancelproduct')->name('cancelproduct');
+            Route::get('/acceptproduct/{id}', 'acceptproduct')->name('acceptproduct');
         });
 
     });
