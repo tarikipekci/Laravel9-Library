@@ -216,11 +216,7 @@
             <!-- /. ROW  -->
             <div class="row">
                 <div class="col-md-12">
-                    <div class="alert alert-info">
-                        n
-                        <br/>
-                        n <a href="http://www.binarytheme.com/" target="_blank">BinaryTheme.com</a>
-                    </div>
+
                 </div>
             </div>
 

@@ -119,7 +119,7 @@
                                         </div>
 
                                         <a href="#">{{$data->comment->count('id')}} Review(s) / Add Review</a>
-                                        Availability: @if($data->status == 'True')
+                                        Availability: @if($data->amount > 0)
                                             <a href="#" style="color: #4cae4c">In Stock</a>
                                         @else
                                             <a style="color: red">Not In Stock</a>

@@ -137,7 +137,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="page-head-line"> Edit Category: {{$data->title}}</h1>
-                    <h1 class="page-subhead-line">This is dummy text , you can replace it with your original text. </h1>
+
 
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="panel panel-info">
@@ -217,11 +217,7 @@
             <!-- /. ROW  -->
             <div class="row">
                 <div class="col-md-12">
-                    <div class="alert alert-info">
-                        null.
-                        <br/>
-                        null <a href="http://www.binarytheme.com/" target="_blank">BinaryTheme.com</a>
-                    </div>
+
                 </div>
             </div>
 

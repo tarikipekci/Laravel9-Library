@@ -15,7 +15,7 @@
 
             <li><a href="{{route('home')}}" class="active">Home</a></li>
 
-            <li><a href="products.html">Products</a></li>
+            <li><a href="{{route('productlist')}}">Products</a></li>
 
             @foreach($mainCategories as $rs)
                 @if(count($rs->children))
@@ -137,7 +137,7 @@
 
                 </section>
             </div>
-            <p class="text-center"><a href="products.html">More Books &nbsp;<i class="fa fa-long-arrow-right"></i></a>
+            <p class="text-center"><a href="{{route('productlist')}}">More Books &nbsp;<i class="fa fa-long-arrow-right"></i></a>
             </p>
 
             <br>
@@ -173,19 +173,13 @@
 
             <div class="row">
                 <div class="col-sm-6 text-center">
-                    <p class="m-n"><em>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt delectus
-                            mollitia, debitis architecto recusandae? Quidem ipsa, quo, labore minima enim similique,
-                            delectus ullam non laboriosam laborum distinctio repellat quas deserunt voluptas
-                            reprehenderit dignissimos voluptatum deleniti saepe. Facere expedita autem quos."</em></p>
+                    <p class="m-n"><em>"I always order books from Bookraria. Because it is both affordable and reaches me very quickly. I am very pleased!!"</em></p>
 
-                    <p><strong> - John Doe</strong></p>
+                    <p><strong> - Katie Johnson</strong></p>
                 </div>
 
                 <div class="col-sm-6 text-center">
-                    <p class="m-n"><em>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt delectus
-                            mollitia, debitis architecto recusandae? Quidem ipsa, quo, labore minima enim similique,
-                            delectus ullam non laboriosam laborum distinctio repellat quas deserunt voluptas
-                            reprehenderit dignissimos voluptatum deleniti saepe. Facere expedita autem quos."</em></p>
+                    <p class="m-n"><em>"It's just Bookraria... Needless to say."</em></p>
 
                     <p><strong>- John Doe</strong></p>
                 </div>

@@ -33,6 +33,12 @@ Route::post('/storemessage', [HomeController::class, 'storemessage'])->name('sto
 
 Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
 
+//point
+
+Route::get('/productlist', [HomeController::class, 'productlist'])->name('productlist');
+
+//
+
 Route::post('/storecomment', [HomeController::class, 'storecomment'])->name('storecomment');
 
 Route::view('/loginuser', 'home.login')->name('loginuser');

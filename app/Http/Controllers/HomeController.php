@@ -27,7 +27,7 @@ class HomeController extends Controller
     {
 
         $page = 'home';
-        $sliderdata = Product::limit(4)->get();
+        $sliderdata = Product::limit(10)->get();
         $slide = Product::first();
         $productlist1 = Product::limit(6)->get();
         $setting = Setting::first();
@@ -159,6 +159,27 @@ class HomeController extends Controller
         ])->onlyInput('email');
     }
 
+    public function order($id)
+    {
 
+        $data = Product::find($id);
+        $reviews = Comment::where('product_id', $id)->where('status', 'True')->get();
+        return view('home.order', ['data' => $data,'reviews' => $reviews]);
+
+    }
+
+
+    public function productlist()
+    {
+
+        $page = 'home';
+        $sliderdata = Product::limit(4)->get();
+        $slide = Product::first();
+        $productlist1 = Product::limit(100)->get();
+        $setting = Setting::first();
+
+
+        return view('home.productlist', ['setting' => $setting, 'page' => $page, 'sliderdata' => $sliderdata, 'slide' => $slide, 'productlist1' => $productlist1]);
+    }
 
 }
